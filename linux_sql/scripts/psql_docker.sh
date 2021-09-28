@@ -20,12 +20,11 @@ case $cmd in
 
     if [ $container_status -eq 0 ]; then
       echo 'Container already exists'
-      exit 1
+      exit 0
     fi
 
     docker volume create pgdata
-    #is jrvs-psql USER NAME?
-    docker run --name jrvs-psql -e POSTGRES_PASSWORD=$db_password -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
+    docker run --name jrvs-psql -e POSTGRES_USER=$db_username POSTGRES_PASSWORD=$db_password -d -v pgdata:/var/lib/postgresql/data -p 5432:5432 postgres
     exit $?
     ;;
 
