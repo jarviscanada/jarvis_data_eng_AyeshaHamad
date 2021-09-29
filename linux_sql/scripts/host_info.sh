@@ -21,9 +21,6 @@ L2_cache=$(echo "$lscpu_out"  | egrep "^L2 cache:" | awk '{ print $3}'| sed 's/[
 total_mem=$(grep "^MemTotal" /proc/meminfo | awk '{ print $2 }')
 timestamp=$(date -u "+%Y-%m-%d %H:%M:%S")
 
-#host_id="(SELECT id FROM host_info
-#          WHERE host_name='$hostname')";
-
 insert_stmt="INSERT INTO host_info(
                                     hostname,
                                     cpu_number,
