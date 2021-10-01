@@ -19,10 +19,6 @@ END;
 $$
 LANGUAGE PLPGSQL;
 
--- verify rount5 function
-SELECT host_id, timestamp, round5(timestamp)
-FROM host_usage;
-
 -- Answer:2
 SELECT host_id,
        round5( host_usage.timestamp ),
@@ -41,4 +37,4 @@ SELECT host_id,
 FROM host_usage
 GROUP BY host_id, round5
 HAVING count(host_id)<=2
-ORDER BY host_id;
+ORDER BY host_id, round5;
