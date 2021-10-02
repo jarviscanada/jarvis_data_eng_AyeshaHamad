@@ -17,7 +17,7 @@ In this project we have used following technologies.
 ./scripts/psql_docker.sh stop
 ```
 - Create tables using ddl.sql
-```shell
+```bash
 # Script usage
 psql -h [PSQL_HOST_NAME] -p [PORT] -U [DB_USER_NAME] -d [DB_NAME] -f [FILE_NAME.sql]
 
@@ -71,6 +71,7 @@ Following diagram explain basic architecture of the system.
 Every script/file is explained with a diagram so that it would be easier to understand how it is executed and what is the purpose.
 
 **Psql_docker.sh**
+
 ![Psql_docker.sh](assets/Psql_docker.png)
 
 ````shell
@@ -78,6 +79,7 @@ Every script/file is explained with a diagram so that it would be easier to unde
 ````
 
 **DDL.sql**
+
 ![Creating_Tables.sh](assets/Creating_Tables.png)
 
 ````postgresql
@@ -85,6 +87,7 @@ Every script/file is explained with a diagram so that it would be easier to unde
 ````
 
 **Monitoring Agent**
+
 ![Monitoring_Agent](assets/Monitoring_Agent.png)
 
 ````shell
@@ -98,6 +101,7 @@ Every script/file is explained with a diagram so that it would be easier to unde
 ````
 
 **Queries.sql**
+
 ![Queries](assets/Queries.png)
 
 ````postgresql
