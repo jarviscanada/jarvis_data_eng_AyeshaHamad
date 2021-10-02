@@ -17,7 +17,7 @@ In this project we have used following technologies.
 ./scripts/psql_docker.sh stop
 ```
 - Create tables using ddl.sql
-```bash
+```shell
 # Script usage
 psql -h [PSQL_HOST_NAME] -p [PORT] -U [DB_USER_NAME] -d [DB_NAME] -f [FILE_NAME.sql]
 
@@ -66,22 +66,44 @@ Following diagram explain basic architecture of the system.
 ![Basic_architecture](assets/Basic_architecture.png)
 
 ## Scripts
+*(I already mentioned how to use in quick start, can you guide me what to explain here, commands how to execute or actual code)*
 
-Following diagrams explains how every single script is executed and what is the purpose.
+Every script/file is explained with a diagram so that it would be easier to understand how it is executed and what is the purpose.
 
-###Psql_docker.sh
+**Psql_docker.sh**
 ![Psql_docker.sh](assets/Psql_docker.png)
 
-###DDL.sql
+````shell
+
+````
+
+**DDL.sql**
 ![Creating_Tables.sh](assets/Creating_Tables.png)
 
-###Monitoring Agent
+````postgresql
+
+````
+
+**Monitoring Agent**
 ![Monitoring_Agent](assets/Monitoring_Agent.png)
 
-###Queries.sql
+````shell
+
+````
+````shell
+
+````
+````shell
+
+````
+
+**Queries.sql**
 ![Queries](assets/Queries.png)
 
-(I already mentioned how to use in quick start, can you guide me what to explain here, commands how to execute or actual code)
+````postgresql
+
+````
+
 Shell script description and usage (use markdown code block for script usage)
 - psql_docker.sh
 - host_info.sh
@@ -90,7 +112,7 @@ Shell script description and usage (use markdown code block for script usage)
 - queries.sql (describe what business problem you are trying to resolve)
 
 ## Database Modeling
-Following tables host_info and host_usage are created to save data respectively. 
+Following tables host_info and host_usage are created to save data respectively. The relationship between host_info and host_usage is 1 to many.
 
 ![DatabaseModelling](assets/database_modelling.png)
 
@@ -99,17 +121,20 @@ To test this program we have gone through
 - Unit testing for every script and sql file. 
 - Writing few simple test cases covering all possible scenarios for the scripts
 
-###Psql_docker.sh
+**Psql_docker.sh**
   - Testing script if it displays error message for invalid parameters
   - Testing if you are recreating docker container.
   - Testing if start/stop container command is executed with no container created
-###DDl.sql
+
+**DDl.sql**
   - Testing if table are created successfully by running ddl.sql only if tables does not exist in DB
-###Host_info.sh and host_usage,sh
+
+**Host_info.sh and host_usage,sh**
   - Testing if error is displayed for invalid number of parameters passed
   - Testing if correct data is extracted using bash CLI for host_info and host_usage
-  - Testing if data is inserted in database and respective tables successfully
-###Queries.sql
+  - Testing if data is inserted in database and respective tables successfully 
+
+**Queries.sql**
   - Testing if data is selected from DB and displayed correctly
   - Testing if queries are returning correct results
 
