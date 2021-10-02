@@ -1,3 +1,4 @@
+# Linux Cluster Monitoring Agent
 # Introduction
 This project is designed to manage and administer Jarvis Linux Cluster, so that the LCA team can get hardware specifications and software utilization, memory/CPU management and generate reports according to their requirements. This project will help the LCA team to make decisions like if the system is fully utilized or not, or if they want to increase hardware/software specifications.
 
@@ -66,16 +67,16 @@ Following diagram explain basic architecture of the system.
 
 Following diagrams explains how every single script is executed and what is the purpose.
 
-####Psql_docker.sh
+###Psql_docker.sh
 ![Psql_docker.sh](assets/Psql_docker.png)
 
-####DDL.sql
-![Creating_Tables.sh](assets/Creating Tables.png)
+###DDL.sql
+![Creating_Tables.sh](assets/Creating_Tables.png)
 
-####Monitoring Agent
-![Monitoring_Agent](assets/Monitoring Agent.png)
+###Monitoring Agent
+![Monitoring_Agent](assets/Monitoring_Agent.png)
 
-####Queries.sql
+###Queries.sql
 ![Queries](assets/Queries.png)
 
 ## Scripts
