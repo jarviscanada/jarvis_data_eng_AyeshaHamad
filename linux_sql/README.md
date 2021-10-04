@@ -46,6 +46,10 @@ bash scripts/host_usage.sh "localhost" 5432 "host_agent" "postgres" "password"
 crontab -e
 
 #add this to crontab to execute every minute
+# Usage
+* * * * * bash /copy_complete_path_to_script/host_usage.sh [PSQL_HOST_NAME] [PORT] [DB_NAME] [DB_USER_NAME] [DB_PASSWORD]
+
+#Example
 * * * * * bash /copy_complete_path_to_script/host_usage.sh "localhost" 5432 "host_agent" "postgres" "password"
 
 #You can list crontab job(s) that you added
@@ -317,9 +321,16 @@ To test this program we have gone through
   - Testing if queries are returning correct results
 
 # Deployment
-How did you deploy your app? (e.g. Github, crontab, docker)???? Can you guide me 
+*How did you deploy your app? (e.g. Github, crontab, docker)???? Can you guide me further what i should add here* 
+1. Download the project from GitHub
+2. Docker: you need to create Psql_docker container (follow quick start commands)
+3. Psql Client Tool: you need to install psql client tool in order to access database and to run psql commands
+4. Scripts: Execute all scripts and sql file in sequence as shown in quick start 
+5. Crontab: Setup Crontab every minute (follow quick start commands)
+6. Queries: use queries.sql to generate and view reports
+
 
 # Improvements
-Write at least three things you want to improve????
-- handle hardware update
-- 
+- handle hardware update, in this program we are entering host info once, updating host info if required.
+- handling crontab: creating a function where you can enter time interval after which you want to execute host_usage. It updates crontab.
+- improving queries to get better results 
