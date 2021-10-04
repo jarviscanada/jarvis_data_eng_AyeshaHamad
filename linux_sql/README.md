@@ -173,6 +173,7 @@ insert_stmt="INSERT INTO host_info(
                                      $total_mem,
                                     '$timestamp'
                                   )"
+export PGPASSWORD=$psql_password                                  
 #executing insert statement using parameters provided                      
 psql -h $psql_host -p $psql_port -d $db_name -U $psql_user -c "$insert_stmt"
 exit ?
@@ -227,6 +228,7 @@ insert_stmt="INSERT INTO host_usage(
                                      $disk_available,
                                     '$timestamp'
                                   )"
+export PGPASSWORD=$psql_password                  
 #executing  insert statement
 psql -h $psql_host -p $psql_port -d $db_name -U $psql_user -c "$insert_stmt"
 exit $?
