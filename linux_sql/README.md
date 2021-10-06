@@ -70,7 +70,6 @@ Following diagram explain basic architecture of the system.
 ![Basic_architecture](assets/Basic_architecture.png)
 
 ## Scripts
-*(I already mentioned how to use in quick start, can you guide me what to explain here, commands how to execute or actual code)*
 
 Every script/file is explained with a diagram so that it would be easier to understand how it is executed and what is the purpose.
 
@@ -321,7 +320,7 @@ To test this program we have gone through
   - Testing if queries are returning correct results
 
 # Deployment
-*How did you deploy your app? (e.g. Github, crontab, docker)???? Can you guide me further what i should add here* 
+
 1. Download the project from GitHub
 2. Docker: you need to create Psql_docker container (follow quick start commands)
 3. Psql Client Tool: you need to install psql client tool in order to access database and to run psql commands
