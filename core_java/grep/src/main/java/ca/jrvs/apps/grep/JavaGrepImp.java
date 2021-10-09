@@ -21,21 +21,23 @@ public class JavaGrepImp implements JavaGrep {
 
   final Logger logger = LoggerFactory.getLogger(JavaGrepImp.class);
 
+  /**
+   * CLI arguments are passed by setting following in 'Edit Configuration'
+   *  ".*Romeo.*Juliet.*" "./data" "./out/outFile.txt"
+   *
+   * @param args
+   */
   public static void main(String[] args) {
-    //if(args.length!=3){
-    //  throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
-    //}
-    //Logger configuration??
+    if (args.length != 3) {
+      throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
+    }
 
     JavaGrepImp javaGrepImp = new JavaGrepImp();
-    javaGrepImp.setRegex(".*Romeo.*Juliet.*");
-    javaGrepImp.setRootPath("./data");
-    javaGrepImp.setOutFile("./out/outFile2.txt");
-    javaGrepImp.logger.debug("checking logger message");
-    /*javaGrepImp.setRegex(args[0]);
+    javaGrepImp.setRegex(args[0]);
     javaGrepImp.setRootPath(args[1]);
     javaGrepImp.setOutFile(args[2]);
-    */
+    javaGrepImp.logger.debug("checking logger message");
+
     try {
       javaGrepImp.process();
     } catch (IOException e) {
@@ -47,13 +49,11 @@ public class JavaGrepImp implements JavaGrep {
   public void process() throws IOException {
     List<File> listOfFiles = listFiles(getRootPath());
     logger.debug("Total number of files in root director : " + listOfFiles.size());
-
     List<String> matchedLines = new ArrayList<>();
 
     for (File file : listOfFiles) {
       matchedLines.addAll(readLines(file));
     }
-
     logger.debug("Total number of matched lines that will be written : " + matchedLines.size());
     writeToFile(matchedLines);
   }
@@ -68,10 +68,11 @@ public class JavaGrepImp implements JavaGrep {
   public void traverseDirectorRecursively(String rootDir, List<File> fileList) {
     File folder = new File(rootDir);
     for (File file : folder.listFiles()) {
-      if (!file.isDirectory())
+      if (!file.isDirectory()) {
         fileList.add(file);
-      else
+      } else {
         traverseDirectorRecursively(file.getPath(), fileList);
+      }
     }
   }
 
@@ -86,8 +87,9 @@ public class JavaGrepImp implements JavaGrep {
     try {
       singleLine = bufferedReader.readLine();
       while (singleLine != null) {
-        if (containsPattern(singleLine))
+        if (containsPattern(singleLine)) {
           lines.add(singleLine + "\n");
+        }
         singleLine = bufferedReader.readLine();
       }
       bufferedReader.close();
@@ -95,7 +97,8 @@ public class JavaGrepImp implements JavaGrep {
       logger.error("IOException : ", e);
     }
 
-    logger.debug("File : " + inputFile.getName() + " : Total # of matched line(s) : " + lines.size());
+    logger.debug(
+        "File : " + inputFile.getName() + " : Total # of matched line(s) : " + lines.size());
     return lines;
   }
 
