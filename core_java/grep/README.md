@@ -1,11 +1,9 @@
 # Introduction
-(50-100 words)
-Discuss the design of each app. 
 
 This program is designed to search a string or any pattern from text files. 
 It traverses the "root directory" that you enter and looks for files and sub-directories further in there. And search for the matching string in all those files, saves all matching lines. The result is then saved in an output file (outFIle.txt) that you enter.
 
-This program is created using followings Java concepts:
+This program is created using followings Java and Application Development concepts:
 - List and ArrayList
 - Interface
 - Regex Pattern
@@ -43,10 +41,10 @@ writeToFile (matchedLines)
 
 ## Performance Issue
 (30-60 words)
-Discuss the memory issue and how would you fix it
+Discuss the memory issue and how would you fix it. Not done yet
 
 # Test
-How did you test your application manually? (e.g. prepare sample data, run some test cases manually, compare result)
+How did you test your application manually? (e.g. prepare sample data, run some test cases manually, compare result). Not done yet
 
 # Deployment
 How you dockerize your app for easier distribution?
