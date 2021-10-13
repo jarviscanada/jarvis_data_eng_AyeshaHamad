@@ -6,32 +6,25 @@ package ca.jrvs.practice.codingChallenge;
 public class SwapTwoNumbers {
 
   /**
-   * Big O : O(1)
-   * Justification : Each line of code complexity O(1).
-   *                 = O(1+1+1)
-   *                 = O(3)
-   *                 = O(1)
-   * @param num input array of size 2
-   */
-  public void swap2Numbers_Math(int [] num){
-    num[0]=num[0]+num[1];
-    num[1]=num[0]-num[1];
-    num[0]=num[0]-num[1];
-  }
-
-  /**
-   * Big O : O(1)
-   * Justification : Each line of code complexity O(1).
-   *                 = O(1+1+1)
-   *                 = O(3)
-   *                 = O(1)
+   * Big O : O(1) Justification : Each line of code complexity O(1). = O(1+1+1) = O(3) = O(1)
    *
    * @param num input array of size 2
    */
-  public void swap2Numbers_Bitwise(int [] num){
-    num[0]=num[0] ^ num[1];
-    num[1]=num[0] ^ num[1];
-    num[0]=num[0] ^ num[1];
+  public void swap2Numbers_Math(int[] num) {
+    num[0] = num[0] + num[1];
+    num[1] = num[0] - num[1];
+    num[0] = num[0] - num[1];
+  }
+
+  /**
+   * Big O : O(1) Justification : Each line of code complexity O(1). = O(1+1+1) = O(3) = O(1)
+   *
+   * @param num input array of size 2
+   */
+  public void swap2Numbers_Bitwise(int[] num) {
+    num[0] = num[0] ^ num[1];
+    num[1] = num[0] ^ num[1];
+    num[0] = num[0] ^ num[1];
   }
 
 }
