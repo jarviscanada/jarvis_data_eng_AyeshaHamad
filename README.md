@@ -1,14 +1,14 @@
 # Ayesha Hamad . Jarvis Consulting
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit.
+I have done BS in Computer Science and have 3 years of programming experience in C++ in mobile application development. I have also taken Full Stack Java Development Course from ComIT, Manitoba and Software Quality Assurance Course - Manual and Automation Teasting from JustWin, Ontario to upgrade my knowledge. To persue my career in Software Development and Testing feild I also took some certifications and I am Certified Automation Tester, SCRUM Tester and Manual Tester. What really excites me is that IT industry is ruling the world and I always wanted to be the part of it. I like to code and doing what you like most increases your creativity and productivity as well. I have excellent communication and interpersonal skills and always willing to learn new technologies and adapting new environment
 
 ## Skills
 
-**Proficient:** Java, C++, OOP, Linux/Bash, RDBMS/SQL, Agile/Scrum, SDLC, Git/GitHub
+**Proficient:** Java, C++, OOP, Data Structures, Linux/Bash, RDBMS/SQL, Agile/Scrum, SDLC, Git/GitHub
 
-**Competent:** UFT (QTP), Selenium WebDriver (JAVA) implementing Page Object Model and TestNG, ALM Octane (QC), Jira, fermentum
+**Competent:** Test scripting using UFT (QTP), Selenium WebDriver (JAVA) implementing Page Object Model and TestNG, ALM Octane (QC), Jira, Manual Testing
 
-**Familiar:** Obj-C, C# .Net, fermentum, fermentum, fermentum
+**Familiar:** Obj-C, C# .Net, Rest API, SOAP UI - Web Services, Web designing
 
 ## Jarvis Projects
 
@@ -21,7 +21,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AyeshaHama
       
   - Twitter App:
   - JDBC App:
-  - Grep App:
+  - Grep App: Add here
 
 **Springboot App** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AyeshaHamad/tree/master/springboot)]: Not Started
 
@@ -40,7 +40,7 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AyeshaHama
 
 ## Professional Experiences
 
-**Software Developer, Jarvis (2021-present)**: Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.
+**Software Developer, Jarvis (2021-present)**: ADD HERE FURTHER DETAIL Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
 
 **Software Engineer, FiveRivers Technologies, Lahore, Pakistan (2011-2014)**: Worked on Marmalade - a cross platform for mobile application development using C++ and developed android and IOS applications. My basic dedication was creating the Photo Editor app in pepper.pk integrating openCV and photo shop algorithms to create filters.
 
@@ -50,8 +50,9 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AyeshaHama
 
 
 ## Miscellaneous
-- Udacity Machine Learning (2019)
-- Winner
+- Endorsed Automation Tester Certification
+- Endorsed Manual Tester Certification
+- Endorsed Scrum Tester Certification
 - Basketball player
 - Competitive gaming
 - Volunteer, ABC Food bank: Ut enim ad minim veniam
