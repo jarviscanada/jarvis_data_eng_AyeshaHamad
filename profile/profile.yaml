@@ -5,7 +5,7 @@ github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AyeshaHama
 
 # Introduce yourself, your academic and professional background.
 # What excites you about the software industry and your passion. At least 80 words
-summary: I have done BS in Computer Science and have 3 years of programming experience in C++ in mobile application development. I have also taken Full Stack Java Development Course from ComIT, Manitoba and Software Quality Assurance Course - Manual and Automation Teasting from JustWin, Ontario to upgrade my knowledge. To persue my career in Software Development and Testing feild I also took some certifications and I am Certified Automation Tester, SCRUM Tester and Manual Tester. What really excites me is that IT industry is ruling the world and I always wanted to be the part of it. I like to code and doing what you like most increases your creativity and productivity as well. I have excellent communication and interpersonal skills and always willing to learn new technologies and adapting new environment
+summary: "I have done BS in Computer Science and have 3 years of programming experience in C++ in mobile application development. I have also taken Full Stack Java Development Course from ComIT, Manitoba and Software Quality Assurance Course - Manual and Automation Teasting from JustWin, Ontario. To persue my career in Software Development and Testing field I also took some certifications, I am Certified Automation Tester, SCRUM Tester and Manual Tester. \n\n What really excites me is that IT industry is ruling the world and I always wanted to be the part of it. I like to code and develop apps and programs and doing what you like most increases your creativity and productivity as well. I have excellent communication and interpersonal skills and always willing to learn new technologies and adapting new environment"
 
 # Group your skills by level.
 # Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
@@ -27,7 +27,7 @@ skills:
     - Selenium WebDriver (JAVA) implementing Page Object Model and TestNG
     - ALM Octane (QC)
     - Jira
-    - Manual Testing
+    - Manual Testing/Test cases
   # At least 5 skills
   familiar:
     - Obj-C
@@ -42,7 +42,9 @@ jarvis_projects:
     git_url: "/linux_sql"
     # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "Add here detail"
+    description: "Implemented a Monitoring Agent for Jarvis Linux Cluster (MVP), so that the LCA team can get hardware specifications and software utilization, memory/CPU management and generate reports. These reports will further help the LCA team to make decisions either they want to increase hardware/software specifications or not if the system is fully or under utilized.
+    \n
+    **Technologies used:** Docker, Bash scripts, Postgres SQL, PSQL Client Tool, Crontab, IntelliJ, Git and GitHub"
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
@@ -73,7 +75,7 @@ highlighted_projects:
     #URL is optional
     git_url: ""
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+    description: ADD HERE LATER, WHICH PROJECT I WANT TO HIGHLIGHT Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
 
 #List of professional experience
 #The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
@@ -88,7 +90,9 @@ professional_experience:
   - title: "Software Engineer"
     company: "FiveRivers Technologies, Lahore, Pakistan"
     duration: "2011-2014"
-    description: "Worked on Marmalade - a cross platform for mobile application development using C++ and developed android and IOS applications. My basic dedication was creating the Photo Editor app in pepper.pk integrating openCV and photo shop algorithms to create filters. Key Responsibilities: Created Photo Editor App using Marmalade, for android and IOS. Created android and IOS extensions to add monetization s and other SDKs to marmalade platform like Revmob, StartApp, Leadbolt, Google Ad mediation, Flurry, Crittercism using JNI, Java, Obj-C and marmalade EDK (extension development kit). Maintained existing programs by modifying as required and making the code reusable. Wrote, modified, integrated, and tested software code. Wrote test cases for each module to ensure a bug free and robust code. Gathered and Understood user requirements to develop logical specifications."
+    description: "Worked on Marmalade - a cross platform for mobile application development using C++ and developed android and IOS applications. My basic dedication was creating the Photo Editor app in pepper.pk integrating openCV and photo shop algorithms to create filters.\n
+    \n
+    **Key Responsibilities:** Created Photo Editor App using Marmalade, for android and IOS. Created android and IOS extensions to add monetization s and other SDKs to marmalade platform like Revmob, StartApp, Leadbolt, Google Ad mediation, Flurry, Crittercism using JNI, Java, Obj-C and marmalade EDK (extension development kit). Maintained existing programs by modifying as required and making the code reusable. Wrote, modified, integrated, and tested software code. Wrote test cases for each module to ensure a bug free and robust code. Gathered and Understood user requirements to develop logical specifications."
 
 #List of edcuation
 education: 
