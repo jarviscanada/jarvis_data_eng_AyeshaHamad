@@ -48,11 +48,12 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AyeshaHama
 ## Education
 **Punjab University, Lahore, Pakistan (2007-2011)**, Bachelor of Science in Computer Science, College of Information and Technology
 
+**Com IT, Winnipeg, Canada (June 2018-Sep 2018)**, Full Stack Java Development, IT
+
+**Justwin IT Solutions, Brampton, Canada (Jan 2021-Apr 2021)**, Quality Assurance: Manual and Automation Testing, IT
+
 
 ## Miscellaneous
 - Endorsed Automation Tester Certification
 - Endorsed Manual Tester Certification
 - Endorsed Scrum Tester Certification
-- Basketball player
-- Competitive gaming
-- Volunteer, ABC Food bank: Ut enim ad minim veniam
