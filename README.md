@@ -15,7 +15,7 @@ I have done BS in Computer Science and have 3 years of programming experience in
 Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AyeshaHamad](https://github.com/jarviscanada/jarvis_data_eng_AyeshaHamad)
 
 
-**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AyeshaHamad/tree/master/linux_sql)]: Add here
+**Cluster Monitor** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AyeshaHamad/tree/master/linux_sql)]: Add here detail
 
 **Core Java Apps** [[GitHub](https://github.com/jarviscanada/jarvis_data_eng_AyeshaHamad/tree/master/core_java)]:
       
@@ -35,20 +35,14 @@ Project source code: [https://github.com/jarviscanada/jarvis_data_eng_AyeshaHama
 
 
 ## Highlighted Projects
-**Web app for resturant**: Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+**Web app for resturant**: Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
 
 
 ## Professional Experiences
 
 **Software Developer, Jarvis (2021-present)**: ADD HERE FURTHER DETAIL Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
 
-**Software Engineer, FiveRivers Technologies, Lahore, Pakistan (2011-2014)**: Worked on Marmalade - a cross platform for mobile application development using C++ and developed android and IOS applications. My basic dedication was creating the Photo Editor app in pepper.pk integrating openCV and photo shop algorithms to create filters. Key Responsibilities: 
-Created Photo Editor App using Marmalade, for android and IOS. 
-Created android and IOS extensions to add monetization s and other SDKs to marmalade platform like Revmob, StartApp, Leadbolt, Google Ad mediation, Flurry, Crittercism using JNI, Java, Obj-C and marmalade EDK (extension development kit). 
-Maintained existing programs by modifying as required and making the code reusable. 
-Wrote, modified, integrated, and tested software code. 
-Wrote test cases for each module to ensure a bug free and robust code. 
-Gathered and Understood user requirements to develop logical specifications. 
+**Software Engineer, FiveRivers Technologies, Lahore, Pakistan (2011-2014)**: Worked on Marmalade - a cross platform for mobile application development using C++ and developed android and IOS applications. My basic dedication was creating the Photo Editor app in pepper.pk integrating openCV and photo shop algorithms to create filters. Key Responsibilities: Created Photo Editor App using Marmalade, for android and IOS. Created android and IOS extensions to add monetization s and other SDKs to marmalade platform like Revmob, StartApp, Leadbolt, Google Ad mediation, Flurry, Crittercism using JNI, Java, Obj-C and marmalade EDK (extension development kit). Maintained existing programs by modifying as required and making the code reusable. Wrote, modified, integrated, and tested software code. Wrote test cases for each module to ensure a bug free and robust code. Gathered and Understood user requirements to develop logical specifications.
 
 
 ## Education

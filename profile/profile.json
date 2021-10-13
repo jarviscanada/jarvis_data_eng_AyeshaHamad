@@ -6,19 +6,33 @@
       "department": "College of Information and Technology",
       "duration": "2007-2011",
       "school_name": "Punjab University, Lahore, Pakistan"
+    },
+    {
+      "awards_achievements": null,
+      "degree": "Full Stack Java Development",
+      "department": "IT",
+      "duration": "June 2018-Sep 2018",
+      "school_name": "Com IT, Winnipeg, Canada"
+    },
+    {
+      "awards_achievements": null,
+      "degree": "Quality Assurance: Manual and Automation Testing",
+      "department": "IT",
+      "duration": "Jan 2021-Apr 2021",
+      "school_name": "Justwin IT Solutions, Brampton, Canada"
     }
   ],
   "github_repo_root_url": "https://github.com/jarviscanada/jarvis_data_eng_AyeshaHamad",
   "highlighted_projects": [
     {
-      "description": "Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.",
+      "description": "Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.",
       "git_url": "",
       "name": "Web app for resturant"
     }
   ],
   "jarvis_projects": [
     {
-      "description": "Add here",
+      "description": "Add here detail",
       "git_url": "/linux_sql",
       "name": "Cluster Monitor"
     },
@@ -26,7 +40,7 @@
       "description": [
         "Twitter App:",
         "JDBC App:",
-        "Grep App:"
+        "Grep App: Add here"
       ],
       "git_url": "/core_java",
       "name": "Core Java Apps"
@@ -61,58 +75,47 @@
   "others": [
     {
       "bullets": [
-        "Udacity Machine Learning (2019)"
+        "Endorsed Automation Tester Certification",
+        "Endorsed Manual Tester Certification",
+        "Endorsed Scrum Tester Certification"
       ],
-      "title": "Certificates"
-    },
-    {
-      "bullets": [
-        "Winner"
-      ],
-      "title": "Awards"
-    },
-    {
-      "bullets": [
-        "Basketball player",
-        "Competitive gaming",
-        "Volunteer, ABC Food bank: Ut enim ad minim veniam"
-      ],
-      "title": "Activities/Hobbies"
+      "title": "Certifications"
     }
   ],
   "professional_experience": [
     {
       "company": "Jarvis",
-      "description": "Donec mattis sed justo et sagittis. Vestibulum lacinia nulla ipsum. Curabitur imperdiet nibh vitae leo lacinia laoreet. Nullam accumsan, lectus ut maximus ultricies, augue justo egestas mi, vel bibendum felis.",
+      "description": "ADD HERE FURTHER DETAIL Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.",
       "duration": "2021-present",
       "title": "Software Developer"
     },
     {
       "company": "FiveRivers Technologies, Lahore, Pakistan",
-      "description": "Worked on Marmalade - a cross platform for mobile application development using C++ and developed android and IOS applications. My basic dedication was creating the Photo Editor app in pepper.pk integrating openCV and photo shop algorithms to create filters.",
+      "description": "Worked on Marmalade - a cross platform for mobile application development using C++ and developed android and IOS applications. My basic dedication was creating the Photo Editor app in pepper.pk integrating openCV and photo shop algorithms to create filters. Key Responsibilities: Created Photo Editor App using Marmalade, for android and IOS. Created android and IOS extensions to add monetization s and other SDKs to marmalade platform like Revmob, StartApp, Leadbolt, Google Ad mediation, Flurry, Crittercism using JNI, Java, Obj-C and marmalade EDK (extension development kit). Maintained existing programs by modifying as required and making the code reusable. Wrote, modified, integrated, and tested software code. Wrote test cases for each module to ensure a bug free and robust code. Gathered and Understood user requirements to develop logical specifications.",
       "duration": "2011-2014",
       "title": "Software Engineer"
     }
   ],
   "skills": {
     "competent": [
-      "UFT (QTP)",
+      "Test scripting using UFT (QTP)",
       "Selenium WebDriver (JAVA) implementing Page Object Model and TestNG",
       "ALM Octane (QC)",
       "Jira",
-      "fermentum"
+      "Manual Testing"
     ],
     "familiar": [
       "Obj-C",
       "C# .Net",
-      "fermentum",
-      "fermentum",
-      "fermentum"
+      "Rest API",
+      "SOAP UI - Web Services",
+      "Web designing"
     ],
     "proficient": [
       "Java",
       "C++",
       "OOP",
+      "Data Structures",
       "Linux/Bash",
       "RDBMS/SQL",
       "Agile/Scrum",
@@ -120,5 +123,5 @@
       "Git/GitHub"
     ]
   },
-  "summary": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis a orci ac malesuada. Vivamus ligula elit, viverra eu ante porttitor, blandit convallis augue. Aliquam justo justo, mollis at lacus eu, rutrum finibus est. Vestibulum venenatis purus id accumsan pretium. In efficitur magna nec enim laoreet tincidunt. Ut libero metus, scelerisque nec eros vitae, sagittis pellentesque enim. Donec dictum felis volutpat, vehicula magna eu, imperdiet elit. Phasellus ut velit a massa efficitur faucibus. Sed volutpat, lacus sed sagittis luctus, elit."
+  "summary": "I have done BS in Computer Science and have 3 years of programming experience in C++ in mobile application development. I have also taken Full Stack Java Development Course from ComIT, Manitoba and Software Quality Assurance Course - Manual and Automation Teasting from JustWin, Ontario to upgrade my knowledge. To persue my career in Software Development and Testing feild I also took some certifications and I am Certified Automation Tester, SCRUM Tester and Manual Tester. What really excites me is that IT industry is ruling the world and I always wanted to be the part of it. I like to code and doing what you like most increases your creativity and productivity as well. I have excellent communication and interpersonal skills and always willing to learn new technologies and adapting new environment"
 }
