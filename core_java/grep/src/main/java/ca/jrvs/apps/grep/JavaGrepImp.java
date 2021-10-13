@@ -22,8 +22,8 @@ public class JavaGrepImp implements JavaGrep {
   final Logger logger = LoggerFactory.getLogger(JavaGrepImp.class);
 
   /**
-   * CLI arguments are passed by setting following in 'Edit Configuration'
-   *  ".*Romeo.*Juliet.*" "./data" "./out/outFile.txt"
+   * CLI arguments are passed by setting following in 'Edit Configuration' ".*Romeo.*Juliet.*"
+   * "./data" "./out/outFile.txt"
    *
    * @param args
    */
@@ -94,7 +94,7 @@ public class JavaGrepImp implements JavaGrep {
       }
       bufferedReader.close();
     } catch (IOException e) {
-      logger.error("IOException : ", e);
+      logger.error("Error : unable to read line(s) in file : ", e);
     }
 
     logger.debug(
