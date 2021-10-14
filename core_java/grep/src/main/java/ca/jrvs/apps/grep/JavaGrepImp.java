@@ -1,7 +1,12 @@
 package ca.jrvs.apps.grep;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+//import com.sun.org.slf4j.internal.Logger;
+//import com.sun.org.slf4j.internal.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+import org.apache.log4j.BasicConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -31,6 +36,9 @@ public class JavaGrepImp implements JavaGrep {
     if (args.length != 3) {
       throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
     }
+
+    //Using default Logger Config
+    BasicConfigurator.configure();
 
     JavaGrepImp javaGrepImp = new JavaGrepImp();
     javaGrepImp.setRegex(args[0]);
@@ -97,8 +105,7 @@ public class JavaGrepImp implements JavaGrep {
       logger.error("Error : unable to read line(s) in file : ", e);
     }
 
-    logger.debug(
-        "File : " + inputFile.getName() + " : Total # of matched line(s) : " + lines.size());
+    logger.debug("File : " + inputFile.getName() + " : Total # of matched line(s) : " + lines.size());
     return lines;
   }
 
