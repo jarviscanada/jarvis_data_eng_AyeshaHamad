@@ -6,8 +6,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
-import org.omg.CORBA.PRIVATE_MEMBER;
-import sun.awt.X11.XStateProtocol;
 
 public class CustomerDAO extends DataAccessObject<Customer> {
 
@@ -75,6 +73,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
 
   @Override
   public Customer update(Customer dto) {
+    setAutoCommit(false);
     Customer customer = null;
     try(PreparedStatement statement = this.connection.prepareStatement(UPDATE)){
       statement.setString(1,dto.getFirstName());
@@ -89,9 +88,12 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       statement.execute();
 
       customer = this.findById(dto.getId());
+      commit();
+
       JDBCExecutor.logger.debug("Updating record successfully");
 
     }catch(SQLException e){
+      rollback();
       JDBCExecutor.logger.debug("Unable to update record " + e);
     }
 
@@ -111,7 +113,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       statement.setString(8,dto.getZipCode());
       statement.execute();
 
-      JDBCExecutor.logger.debug("data inserted successfully with no exception");
+      JDBCExecutor.logger.debug("Data inserted successfully with no exception");
 
       int id = this.getLastVal(CUSTOMER_SEQUENCE);
       return this.findById(id);
@@ -124,14 +126,42 @@ public class CustomerDAO extends DataAccessObject<Customer> {
 
   @Override
   public void delete(long id) {
-
     try(PreparedStatement statement = this.connection.prepareStatement(DELETE)){
       statement.setLong(1,id);
-      statement.execute();
-      JDBCExecutor.logger.debug("Record deleted successfully");
+      int verifyDelete = statement.executeUpdate();
+      if(verifyDelete != 0)
+      JDBCExecutor.logger.debug("Record deleted successfully. Id = " + id);
+      else
+        JDBCExecutor.logger.debug("Unable to delete record with Id = " + id);
     }catch (SQLException e){
       JDBCExecutor.logger.debug("Unable to delete record " + e);
     }
-
   }
+
+  private void commit(){
+    try {
+      this.connection.commit();
+      JDBCExecutor.logger.debug("CustomerDAO: Data commit is done successfully.");
+    }catch (SQLException e){
+      JDBCExecutor.logger.debug("CustomerDAO: Unable to commit data. " + e);
+    }
+  }
+
+  private void rollback(){
+    try{
+      this.connection.rollback();
+      JDBCExecutor.logger.debug("CustomerDAO: Data rollback is done successfully.");
+    }catch (SQLException e){
+      JDBCExecutor.logger.debug("CustomerDAO: Unable to rollback data. " + e);
+    }
+  }
+
+  private void setAutoCommit(boolean commit){
+    try{
+      this.connection.setAutoCommit(commit);
+    }catch(SQLException e){
+      JDBCExecutor.logger.debug("CustomerDAO: Auto commit = " + commit);
+    }
+  }
+
 }

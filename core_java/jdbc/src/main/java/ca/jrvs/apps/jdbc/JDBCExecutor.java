@@ -15,7 +15,7 @@ public class JDBCExecutor {
   public static void main(String[] args) {
     BasicConfigurator.configure();
     JDBCExecutor jdbc = new JDBCExecutor();
-    jdbc.logger.debug("Hello, Learning JDBC");
+    JDBCExecutor.logger.debug("Hello, Learning JDBC");
 
     DatabaseConnectionManager dcm = new DatabaseConnectionManager(
         "localhost",
@@ -24,53 +24,77 @@ public class JDBCExecutor {
         "password");
     try{
       Connection connection = dcm.getConnection();
-      CustomerDAO customerDAO = new CustomerDAO(connection);
-      //5deleting
-      Customer customer = new Customer();
-      customerDAO.delete(10001);
 
-      //4updating
-      /*
-      CustomerDAO customerDAO = new CustomerDAO(connection);
-      Customer customer = customerDAO.findById(10000);
-      logger.debug("Result from database that you want to modify\n" + customer.getFirstName() + " " + customer.getLastName());
-      customer.setLastName("Hamad");
-      customer = customerDAO.update(customer);
-      logger.debug("Result from database after modification\n" + customer.getFirstName() + " " + customer.getLastName());
-      */
+      //jdbc.findCustomerByIdExample(connection);
+      jdbc.updateCustomerExample(connection);
+      //jdbc.createCustomerExample(connection);
+      //jdbc.deleteCustomerExample(connection);
 
-      //3reading database
-      /*
-      CustomerDAO customerDAO = new CustomerDAO(connection);
-      Customer customer = customerDAO.findById(10000);
-      logger.debug("REsult from database\n" + customer.getFirstName() + " " + customer.getLastName());
-      */
-
-      //2inserting database
-      /*
-      CustomerDAO customerDAO = new CustomerDAO(connection);
-      Customer customer = new Customer();
-      customer.setFirstName("Hamad");
-      customer.setLastName("Asif");
-      customer.setEmail("ayesha@gmail.com");
-      customer.setPhone("204-000-1234");
-      customer.setAddress("1228 winnipeg");
-      customer.setCity("Winnipeg");
-      customer.setState("MB");
-      customer.setZipCode("123123");
-      customerDAO.create(customer);
-      */
-
-      //1
-      /*
-      Statement statement = connection.createStatement();
-      ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM customer");
-      while (resultSet.next()){
-        jdbc.logger.debug("Total count = " + resultSet.getInt(1) );
-      }
-      */
     }catch (SQLException e){
-      jdbc.logger.debug("Unable to create connection " + e);
+      JDBCExecutor.logger.debug("Unable to create connection " + e);
     }
+  }
+
+  /**
+   * Simple function for displaying table without DTO and DAO implementation
+   * @param connection  : db connection
+   * @throws SQLException : SQL Exception
+   */
+  private void displayDataFromCustomerTableExample(Connection connection) throws SQLException{
+    Statement statement = connection.createStatement();
+    ResultSet resultSet = statement.executeQuery("SELECT COUNT(*) FROM customer");
+    while (resultSet.next()){
+      logger.debug("Total count = " + resultSet.getInt(1) );
+    }
+  }
+
+  /**
+   * Inserting into database (INSERT CLAUSE)
+   * @param connection : db connection
+   */
+  private void createCustomerExample(Connection connection){
+    CustomerDAO customerDAO = new CustomerDAO(connection);
+    Customer customer = new Customer();
+    customer.setFirstName("Hamad");
+    customer.setLastName("Asif");
+    customer.setEmail("ayesha@gmail.com");
+    customer.setPhone("204-000-1234");
+    customer.setAddress("1228 winnipeg");
+    customer.setCity("Winnipeg");
+    customer.setState("MB");
+    customer.setZipCode("123123");
+    customerDAO.create(customer);
+  }
+
+  /**
+   * Reading database (SELECT CLAUSE)
+   * @param connection : db connection
+   */
+  private void findCustomerByIdExample(Connection connection){
+    CustomerDAO customerDAO = new CustomerDAO(connection);
+    Customer customer = customerDAO.findById(10007);
+    logger.debug("Result from database\n" + customer.getFirstName() + " " + customer.getLastName());
+  }
+
+  /**
+   * Update Customer (UPDATE CLAUSE)
+   * @param connection : db connection
+   */
+  private void updateCustomerExample(Connection connection){
+    CustomerDAO customerDAO = new CustomerDAO(connection);
+    Customer customer = customerDAO.findById(10006);
+    logger.debug("Result from database that you want to modify\n" + customer.getFirstName() + " " + customer.getLastName());
+    customer.setFirstName("Maaida");
+    customer = customerDAO.update(customer);
+    logger.debug("Result from database after modification\n" + customer.getFirstName() + " " + customer.getLastName());
+  }
+
+  /**
+   * Delate Customer (DELETE CLAUSE)
+   * @param connection : db connection
+   */
+  private void deleteCustomerExample(Connection connection){
+    CustomerDAO customerDAO = new CustomerDAO(connection);
+    customerDAO.delete(10004);
   }
 }
