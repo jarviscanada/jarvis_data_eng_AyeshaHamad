@@ -30,6 +30,7 @@ java -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp ".*Romeo.*Juliet.*" "
 ````
 
 #Implemenation
+
 ## Pseudocode
 `process` is the main function is which all implementation is done.
 ```
