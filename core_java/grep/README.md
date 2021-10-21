@@ -42,8 +42,16 @@ writeToFile (matchedLines)
 ```
 
 ## Performance Issue
-(30-60 words)
-Discuss the memory issue and how would you fix it. Not done yet
+By default JVM heap size is 1 GB which is usually enough to accommodate the data. However, larger heap size may be required under some circumstances. Which is very important concept in this program as we are reading number of files from root directory and the file size may exceed the JVM maximum heap limit.
+We need to avoid Java OutOfMemoryException while reading or processing large files.
+Java File IO provide various ways of dealing with files. However, large file handling is challenging because we need to find a right balance between the speed and memory utilisation.
+
+We are using BufferedReader in this program. Both BufferedReader and BufferedWriter are used in order to achieve greater efficiency through use of buffers. A data buffer is generally a region in memory that is temporarily used. 
+
+But if there is any memory issue we can increase JVM minimum and maximum heap size.
+````shell
+java -Xms250m -Xmx250m -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp [regex] [rootDirectory] [out.txt]
+````
 
 # Test
  - Manual testing executing following test cases
@@ -56,7 +64,49 @@ Discuss the memory issue and how would you fix it. Not done yet
 # Deployment
 How you dockerize your app for easier distribution?
 Not done yet.
+This program has been dockerized so that you can access it easily. First I will discuss how I dockerized it and then steps to deploy the dockerzied app.
+**Dockerizing the grep app**
+```shell
+#Register Docker hub account
+docker_user=docker_hub_id
 
+#It creates connection with docker hub and prompts to enter username and password
+docker login 
+
+#Creating a dockerfile
+cat > Dockerfile << EOF
+FROM openjdk:8-alpine
+COPY target/grep*.jar /usr/local/app/grep/lib/grep.jar
+ENTRYPOINT ["java","-jar","/usr/local/app/grep/lib/grep.jar"]
+EOF
+
+#Pakcaging java grep app
+mvn clean package
+
+#building a new docker image locally
+docker build -t ${docker_user}/grep .
+
+#verifying docker image locally
+docker image ls | grep "grep"
+
+#pushing image to Docker Hub
+docker push ${docker_user}/grep
+```
+
+**Deploying Docker Image to use Grep App**
+```shell
+#pull docker image from Docker Hub
+#it pulls the latest image
+docker pull ayeshahamad/grep
+
+#verify docker image is pulled
+docker image ls | grep "ayeshahamad/grep"
+
+#running docker container with grep image
+docker run --rm \
+-v `pwd`/data:/data -v `pwd`/log:/log \
+ayeshahamad/grep .*Romeo.*Juliet.* /data /log/grep.txt
+```
 
 # Improvement
 List three things you can improve in this project.
