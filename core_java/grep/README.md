@@ -17,7 +17,7 @@ This program is created using followings Java and Application Development concep
 # Quick Start
 
 Compile using Jar file
-````bash
+```bash
 #compile and package your Java code
 mvn clean compile package
 
@@ -27,7 +27,7 @@ java -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp [regex] [rootDirector
 
 #Example
 java -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp ".*Romeo.*Juliet.*" "./data" "./out/grep.txt"
-````
+```
 
 #Implementation
 
