@@ -29,7 +29,8 @@ java -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp [regex] [rootDirector
 java -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp ".*Romeo.*Juliet.*" "./data" "./out/grep.txt"
 ````
 
-#Implemenation
+
+#Implementation
 
 ## Pseudocode
 `process` is the main function is which all implementation is done.
@@ -63,10 +64,9 @@ java -Xms250m -Xmx250m -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp [re
  - Debugging by using logger and printing appropriate message.
 
 # Deployment
-How you dockerize your app for easier distribution?
-Not done yet.
-This program has been dockerized so that you can access it easily. First I will discuss how I dockerized it and then steps to deploy the dockerzied app.
-**Dockerizing the grep app**
+This program has been dockerized so that you can access it easily. First I will discuss how I dockerized it and then steps to deploy the dockerzied application so that you can deploy it at your own.
+
+**Dockerizing the Grep App**
 ```shell
 #Register Docker hub account
 docker_user=docker_hub_id
