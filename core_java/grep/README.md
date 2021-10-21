@@ -1,7 +1,7 @@
 # Introduction
 
 This program is designed to search a string or any pattern from text files. 
-It traverses the "root directory" that you enter and looks for files and sub-directories further in there. And search for the matching string in all those files, saves all matching lines. The result is then saved in an output file (outFIle.txt) that you enter.
+It traverses the "root directory" that you enter and looks for files and sub-directories further in it. And search for the matching string in all those files, saves all matching lines. The result is then saved in an output file (outFIle.txt) that you enter.
 
 This program is created using followings Java and Application Development concepts:
 - List and ArrayList
@@ -12,21 +12,23 @@ This program is created using followings Java and Application Development concep
 - Exception Handling 
 - Logger
 - Maven
+- Docker
 
 # Quick Start
 
-1 Command Line
-````
-#Complie JavaGrepImp.java
-javac JavaGrepImp.java
+Compile using Jar file
+````bash
+#compile and package your Java code
+mvn clean compile package
 
-#Execute JavaGrepImp.class by passing arguments
+#Compiling using Jar file
 #Usage
-java JavaGrepImp [regex] [rootDirectory] [outputFile.txt]
+java -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp [regex] [rootDirectory] [ouputFile.txt]
 
-#Example 
-java JavaGrepImp ".*Romeo.*Juliet.*" "./data" "./out/outFile.txt"
+#Example
+java -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp ".*Romeo.*Juliet.*" "./data" "./out/grep.txt"
 ````
+
 #Implemenation
 ## Pseudocode
 `process` is the main function is which all implementation is done.
@@ -44,14 +46,21 @@ writeToFile (matchedLines)
 Discuss the memory issue and how would you fix it. Not done yet
 
 # Test
-How did you test your application manually? (e.g. prepare sample data, run some test cases manually, compare result). Not done yet
+ - Manual testing executing following test cases
+   - Validating if it displays error for invalid number of input parameters
+   - Validating if it displays message for invalid directory path
+   - Validating if it displays message for no file found
+   - Validating it does not create empty output file when no string is matched
+ - Debugging by using logger and printing appropriate message.
 
 # Deployment
 How you dockerize your app for easier distribution?
 Not done yet.
 
+
 # Improvement
 List three things you can improve in this project.
-- Avoiding extra loops
-- Memory management
-- Make code more efficient
+- Avoiding extra loops.
+- Reading data in such a way that it consumes minimum time.
+- Resolve memory management issues.
+- Make code more efficient.

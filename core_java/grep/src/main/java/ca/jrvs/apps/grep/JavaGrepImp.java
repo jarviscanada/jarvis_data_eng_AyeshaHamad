@@ -56,6 +56,7 @@ public class JavaGrepImp implements JavaGrep {
   @Override
   public void process() throws IOException {
     List<File> listOfFiles = listFiles(getRootPath());
+
     logger.debug("Total number of files in root director : " + listOfFiles.size());
     List<String> matchedLines = new ArrayList<>();
 
@@ -75,6 +76,8 @@ public class JavaGrepImp implements JavaGrep {
 
   public void traverseDirectorRecursively(String rootDir, List<File> fileList) {
     File folder = new File(rootDir);
+    if(!folder.exists())
+      return;
     for (File file : folder.listFiles()) {
       if (!file.isDirectory()) {
         fileList.add(file);
@@ -116,6 +119,8 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void writeToFile(List<String> lines) throws IOException {
+    if(lines.size()==0)
+      return;
     BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(getOutFile()));
     for (String stingLine : lines) {
       bufferedWriter.write(stingLine);
