@@ -13,7 +13,9 @@ This program is created using following Technologies and Application Development
  
 # Implementaiton
 ## ER Diagram
-ER diagram
+Following is the Entity Relationship Diagram.
+
+![ERD](assets/ERD_JDBC.png)
 
 ## Design Patterns
 **DAO Pattern - Data Access Object** DAO is one of the most common design patterns while dealing with databases. DAO provides an abstraction layer between the JDBC code and rest of the code in your application. You can use DAO with DTO as pure abstraction layer. Benefit is that it hides complexity in your jdbc code and separate it from rest of the code providing much better implementation.
