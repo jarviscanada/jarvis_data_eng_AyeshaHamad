@@ -6,7 +6,8 @@ package ca.jrvs.practice.codingChallenge;
 public class EvenOddNumber {
 
   /**
-   * Big O : O(1) Justification : It is simple arithmetic operation using conditional operator
+   * Big O : O(1)
+   * Justification : It is simple arithmetic operation using conditional operator
    *
    * @param number that you want to check
    * @return result
@@ -16,7 +17,8 @@ public class EvenOddNumber {
   }
 
   /**
-   * Big O : O(1) Justification : Simple bitwise operation using conditional operator
+   * Big O : O(1)
+   * Justification : Simple bitwise operation using conditional operator
    *
    * @param number that you want to check
    * @return result
