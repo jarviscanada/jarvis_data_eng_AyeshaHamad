@@ -29,7 +29,7 @@ java -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp [regex] [rootDirector
 java -cp target/grep-1.0.jar ca.jrvs.apps.grep.JavaGrepImp ".*Romeo.*Juliet.*" "./data" "./out/grep.txt"
 ```
 
-#Implementation
+# Implementation
 
 ## Pseudocode
 `process` is the main function is which all implementation is done.
