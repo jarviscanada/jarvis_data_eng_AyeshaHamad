@@ -32,15 +32,15 @@
   ],
   "jarvis_projects": [
     {
-      "description": "Implemented a Monitoring Agent for Jarvis Linux Cluster (MVP), so that the LCA team can get hardware specifications and software utilization, memory/CPU management and generate reports. These reports will further help the LCA team to make decisions either they want to increase hardware/software specifications or not if the system is fully or under utilized. \n **Technologies used:** Docker, Bash scripts, Postgres SQL, PSQL Client Tool, Crontab, IntelliJ, Git and GitHub",
+      "description": "Implemented a Monitoring Agent for the Linux admin team with Bash Scripts, PostgreSQL, PSQL Client Tool, Crontab, SQL queries, Docker, etc. The LCA team can get hardware specifications and software utilization like memory/CPU management, and generate reports with the help of the data saved in the database and executing SQL queries. These reports will further help the LCA team to make decisions either they want to increase hardware/software specifications or not if the system is fully or underutilized.",
       "git_url": "/linux_sql",
       "name": "Cluster Monitor"
     },
     {
       "description": [
         "Twitter App:",
-        "JDBC App:",
-        "Grep App: Add here"
+        "JDBC App: Designed a 'Customer Order Processing System' using JDBC, Data Access Object (DAO), and Data Transfer Object (DTO) Design Pattern, Postgres SQL, PSQL Client Tool, Maven, Docker to create Psql container, IntelliJ, and DBeaver. I have used JDBC to access data from RDBMS. The advantage of JDBC is that an application created using JDBC can access a variety of relational databases and run on any platform with a Java Virtual Machine. In this application, you can read, write, update, and delete (CURD) data against an RDBMS database.",
+        "Grep App: Created a program to search a string from text files using ArrayList, FileReader/FileWriter, BufferedReader/BufferedWriter, Regex Pattern, Maven, and Docker to dockerize the app. This program works in a way that it traverses the 'root directory' that you enter and looks for files and sub-directories further in it. Searches the entered string in all those files and saves all matching lines to a text file."
       ],
       "git_url": "/core_java",
       "name": "Core Java Apps"
@@ -91,7 +91,7 @@
     },
     {
       "company": "FiveRivers Technologies, Lahore, Pakistan",
-      "description": "Worked on Marmalade - a cross platform for mobile application development using C++ and developed android and IOS applications. My basic dedication was creating the Photo Editor app in pepper.pk integrating openCV and photo shop algorithms to create filters.\n \n **Key Responsibilities:** Created Photo Editor App using Marmalade, for android and IOS. Created android and IOS extensions to add monetization s and other SDKs to marmalade platform like Revmob, StartApp, Leadbolt, Google Ad mediation, Flurry, Crittercism using JNI, Java, Obj-C and marmalade EDK (extension development kit). Maintained existing programs by modifying as required and making the code reusable. Wrote, modified, integrated, and tested software code. Wrote test cases for each module to ensure a bug free and robust code. Gathered and Understood user requirements to develop logical specifications.",
+      "description": "Worked on Marmalade - a cross platform for mobile application development using C++ and developed android and IOS applications. My basic dedication was creating the Photo Editor app in pepper.pk integrating openCV and photo shop algorithms to create filters. **Key Responsibilities:** Created Photo Editor App using Marmalade, for android and IOS. Created android and IOS extensions to add monetization s and other SDKs to marmalade platform like Revmob, StartApp, Leadbolt, Google Ad mediation, Flurry, Crittercism using JNI, Java, Obj-C and marmalade EDK (extension development kit). Maintained existing programs by modifying as required and making the code reusable. Wrote, modified, integrated, and tested software code. Wrote test cases for each module to ensure a bug free and robust code. Gathered and Understood user requirements to develop logical specifications.",
       "duration": "2011-2014",
       "title": "Software Engineer"
     }
@@ -108,7 +108,7 @@
       "Obj-C",
       "C# .Net",
       "Rest API",
-      "SOAP UI - Web Services",
+      "SOAP UI - Testing Web Services",
       "Web designing"
     ],
     "proficient": [
@@ -118,10 +118,15 @@
       "Data Structures",
       "Linux/Bash",
       "RDBMS/SQL",
-      "Agile/Scrum",
+      "JDBC",
+      "Maven",
+      "Docker/Docker Hub",
       "SDLC",
-      "Git/GitHub"
+      "Agile/Scrum",
+      "Git/GitHub",
+      "IntelliJ",
+      "Dbeaver"
     ]
   },
-  "summary": "I have done BS in Computer Science and have 3 years of programming experience in C++ in mobile application development. I have also taken Full Stack Java Development Course from ComIT, Manitoba and Software Quality Assurance Course - Manual and Automation Teasting from JustWin, Ontario. To persue my career in Software Development and Testing field I also took some certifications, I am Certified Automation Tester, SCRUM Tester and Manual Tester. \n\n What really excites me is that IT industry is ruling the world and I always wanted to be the part of it. I like to code and develop apps and programs and doing what you like most increases your creativity and productivity as well. I have excellent communication and interpersonal skills and always willing to learn new technologies and adapting new environment"
+  "summary": "I have done BS in Computer Science and have 3 years of programming experience application development. I have also done short courses, Full Stack Java Development and Software Quality Assurance - Manual and Automation Testing. To pursue my career further in Software Development and Quality Assurance, I also took some certifications, I am Certified Automation Tester, SCRUM Tester, and Manual Tester. What really excites me is that the Software industry is ruling the world and I always wanted to be a part of it. I like to code and develop apps and programs and doing what you like most increases your creativity and productivity as well. I have excellent communication and interpersonal skills and am always willing to learn new technologies and adapting new environment."
 }
