@@ -1,7 +1,12 @@
 package ca.jrvs.apps.grep;
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+//import com.sun.org.slf4j.internal.Logger;
+//import com.sun.org.slf4j.internal.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
+import org.apache.log4j.BasicConfigurator;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -32,6 +37,9 @@ public class JavaGrepImp implements JavaGrep {
       throw new IllegalArgumentException("USAGE: JavaGrep regex rootPath outFile");
     }
 
+    //Using default Logger Config
+    BasicConfigurator.configure();
+
     JavaGrepImp javaGrepImp = new JavaGrepImp();
     javaGrepImp.setRegex(args[0]);
     javaGrepImp.setRootPath(args[1]);
@@ -48,6 +56,7 @@ public class JavaGrepImp implements JavaGrep {
   @Override
   public void process() throws IOException {
     List<File> listOfFiles = listFiles(getRootPath());
+
     logger.debug("Total number of files in root director : " + listOfFiles.size());
     List<String> matchedLines = new ArrayList<>();
 
@@ -67,6 +76,8 @@ public class JavaGrepImp implements JavaGrep {
 
   public void traverseDirectorRecursively(String rootDir, List<File> fileList) {
     File folder = new File(rootDir);
+    if(!folder.exists())
+      return;
     for (File file : folder.listFiles()) {
       if (!file.isDirectory()) {
         fileList.add(file);
@@ -97,8 +108,7 @@ public class JavaGrepImp implements JavaGrep {
       logger.error("Error : unable to read line(s) in file : ", e);
     }
 
-    logger.debug(
-        "File : " + inputFile.getName() + " : Total # of matched line(s) : " + lines.size());
+    logger.debug("File : " + inputFile.getName() + " : Total # of matched line(s) : " + lines.size());
     return lines;
   }
 
@@ -109,6 +119,8 @@ public class JavaGrepImp implements JavaGrep {
 
   @Override
   public void writeToFile(List<String> lines) throws IOException {
+    if(lines.size()==0)
+      return;
     BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(getOutFile()));
     for (String stingLine : lines) {
       bufferedWriter.write(stingLine);
