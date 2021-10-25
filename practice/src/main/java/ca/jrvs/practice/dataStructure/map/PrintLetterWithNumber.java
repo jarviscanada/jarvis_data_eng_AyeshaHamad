@@ -11,7 +11,7 @@ public class PrintLetterWithNumber {
   /**
    * Big-O : O(n)
    * Justification : It is single loop that runs according to string length
-   * 
+   *
    * @param input String of alphabets uppercase or lower case
    * @return String appended with numbers mapped.
    */
