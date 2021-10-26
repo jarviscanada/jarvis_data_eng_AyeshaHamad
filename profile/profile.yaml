@@ -51,34 +51,18 @@ jarvis_projects:
   - name: "Core Java Apps"
     git_url: "/core_java"
     description:
-      - "Twitter App:"
       - "JDBC App: Designed a 'Customer Order Processing System' using JDBC, Data Access Object (DAO), and Data Transfer Object (DTO) Design Pattern, Postgres SQL, PSQL Client Tool, Maven, Docker to create Psql container, IntelliJ, and DBeaver. I have used JDBC to access data from RDBMS. The advantage of JDBC is that an application created using JDBC can access a variety of relational databases and run on any platform with a Java Virtual Machine. In this application, you can read, write, update, and delete (CURD) data against an RDBMS database."
       - "Grep App: Created a program to search a string from text files using ArrayList, FileReader/FileWriter, BufferedReader/BufferedWriter, Regex Pattern, Maven, and Docker to dockerize the app. This program works in a way that it traverses the 'root directory' that you enter and looks for files and sub-directories further in it. Searches the entered string in all those files and saves all matching lines to a text file."
-  - name: "Springboot App"
-    git_url: "/springboot"
-    description: ""
-  - name: "Python Data Analytics"
-    git_url: "/python_data_anlytics"
-    description: ""
-  - name: "Hadoop"
-    git_url: "/hadoop"
-    description: ""
-  - name: "Spark"
-    git_url: "/spark"
-    description: ""
-  - name: "Cloud/DevOps"
-    git_url: "/cloud_devops"
-    description: ""
 
 # List of personal or academic projects
 # Feel free to add more projects
 highlighted_projects:
-    #project name
-  - name: "Web app for resturant"
+  #project name
+  - name: "Photo Editor - Filters and Effect"
     #URL is optional
     git_url: ""
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: ADD HERE LATER, WHICH PROJECT I WANT TO HIGHLIGHT Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem.
+    description: "Created Photo Editor app using C++ and OpenCV library. Added number of filters manipulating RBG pixels of the image with the help of OpenCV."
 
 #List of professional experience
 #The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
@@ -89,7 +73,7 @@ professional_experience:
     company: "Jarvis"
     duration: "2021-present"
     # The project description must start with an action verb (https://bit.ly/3guO98u)
-    description: "ADD HERE FURTHER DETAIL Suspendisse a tincidunt odio. Suspendisse posuere luctus aliquet. Quisque magna tellus, tempor vitae arcu sed, volutpat scelerisque lacus. Aliquam varius pulvinar dapibus. Ut a tincidunt sem. Aenean sollicitudin fringilla erat ut imperdiet. Phasellus fermentum, enim vitae laoreet elementum, eros nisl hendrerit lorem."
+    description: "Working as a Software Developer, creating Java Applications using Core Java concepts, OOP, Data Structures, RDBMS/SQL, JDBC, Maven etc. Implementing SCRUM and AGILE methodologies and appropriate SDLC, analyzing Business Requirements and Functional Specifications, identifying Test Scenarios and deploying the app. "
   - title: "Software Engineer"
     company: "FiveRivers Technologies, Lahore, Pakistan"
     duration: "2011-2014"
