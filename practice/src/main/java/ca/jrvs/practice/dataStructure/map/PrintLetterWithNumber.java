@@ -1,7 +1,6 @@
 package ca.jrvs.practice.dataStructure.map;
 
 import java.util.HashMap;
-import java.util.Hashtable;
 import java.util.Map;
 
 /**
