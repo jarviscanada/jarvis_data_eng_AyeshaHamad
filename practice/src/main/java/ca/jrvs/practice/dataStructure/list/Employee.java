@@ -111,7 +111,7 @@ public class Employee implements Comparable{
   };
 
   //replced with lambda
-  /*public static Comparator<Employee> FruitNameComparator = (fruit1, fruit2) -> {
+  /*public static Comparator<Employee> EmployeeNameComparator = (emp1, emp2) -> {
 
     String emp1Name = emp1.getName().toUpperCase();
     String emp2Name = emp2.getName().toUpperCase();
