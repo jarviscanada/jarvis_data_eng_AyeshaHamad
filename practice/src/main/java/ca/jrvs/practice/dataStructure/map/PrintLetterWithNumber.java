@@ -11,7 +11,7 @@ public class PrintLetterWithNumber {
   /**
    * Big-O : O(n)
    * Justification : It is single loop that runs according to string length
-   * 
+   *
    * @param input String of alphabets uppercase or lower case
    * @return String appended with numbers mapped.
    */
@@ -33,7 +33,7 @@ public class PrintLetterWithNumber {
     return output.toString();
   }
 
-  public void iniHashMapWithValues(Map<Character, Integer> map) {
+  private void iniHashMapWithValues(Map<Character, Integer> map) {
     char ch = 'a';
     for (int i = 0; i < 52; i++) {
       if (i == 26) {
