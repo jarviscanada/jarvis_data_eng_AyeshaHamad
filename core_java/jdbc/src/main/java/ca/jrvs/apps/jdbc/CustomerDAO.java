@@ -61,7 +61,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
         JDBCExecutor.logger.debug("Data read from table successfully");
       }
     }catch (SQLException e){
-      JDBCExecutor.logger.debug("Unable to read from database " + e);
+      JDBCExecutor.logger.debug("Unable to read from database ", e);
     }
     return customer;
   }
