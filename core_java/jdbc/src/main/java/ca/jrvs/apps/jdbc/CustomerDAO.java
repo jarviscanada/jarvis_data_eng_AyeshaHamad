@@ -94,7 +94,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
 
     }catch(SQLException e){
       rollback();
-      JDBCExecutor.logger.debug("Unable to update record " + e);
+      JDBCExecutor.logger.debug("Unable to update record ", e);
     }
 
     return customer;
@@ -119,7 +119,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       return this.findById(id);
 
     }catch (SQLException e){
-      JDBCExecutor.logger.debug("Unable to insert into database " + e);
+      JDBCExecutor.logger.debug("Unable to insert into database ", e);
     }
     return null;
   }
@@ -134,7 +134,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       else
         JDBCExecutor.logger.debug("Unable to delete record with Id = " + id);
     }catch (SQLException e){
-      JDBCExecutor.logger.debug("Unable to delete record " + e);
+      JDBCExecutor.logger.debug("Unable to delete record ", e);
     }
   }
 
@@ -143,7 +143,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       this.connection.commit();
       JDBCExecutor.logger.debug("CustomerDAO: Data commit is done successfully.");
     }catch (SQLException e){
-      JDBCExecutor.logger.debug("CustomerDAO: Unable to commit data. " + e);
+      JDBCExecutor.logger.debug("CustomerDAO: Unable to commit data. ", e);
     }
   }
 
@@ -152,7 +152,7 @@ public class CustomerDAO extends DataAccessObject<Customer> {
       this.connection.rollback();
       JDBCExecutor.logger.debug("CustomerDAO: Data rollback is done successfully.");
     }catch (SQLException e){
-      JDBCExecutor.logger.debug("CustomerDAO: Unable to rollback data. " + e);
+      JDBCExecutor.logger.debug("CustomerDAO: Unable to rollback data. ", e);
     }
   }
 
