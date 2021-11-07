@@ -21,7 +21,7 @@ public class TwitterDao implements CrdDao<Tweet, String>{
   private static final String API_BASE_URI = "https://api.twitter.com";
   private static final String POST_PATH = "/1.1/statuses/update.json";
   private static final String SHOW_PATH = "/1.1/statuses/show.json";
-  private static final String DEL_PATH = "/1.1/statuses/destroy";
+  private static final String DEL_PATH = "/1.1/statuses/destroy/id.json";
 
   //URI symbols
   private static final String QUERY_SYMBOL = "?";
@@ -46,13 +46,41 @@ public class TwitterDao implements CrdDao<Tweet, String>{
 
   @Override
   public Tweet findById(String s) {
-
-    return null;
+    URI uri = getReadURI(s);
+    HttpResponse response = httpHelper.httpGet(uri);
+    return parseResponseBody(response, HTTP_OK);
   }
 
   @Override
   public Tweet deleteById(String s) {
-    return null;
+    URI uri = getDeleteURI(s);
+    HttpResponse response = httpHelper.httpPost(uri);
+    return parseResponseBody(response, HTTP_OK);
+  }
+
+  private URI getReadURI(String id){
+    String uri_string = API_BASE_URI + SHOW_PATH + QUERY_SYMBOL + "id" + EQUAL + id;
+    System.out.println(uri_string);
+    URI uri = null;
+    try {
+      uri = new URI(uri_string);
+    } catch (URISyntaxException e) {
+      throw new IllegalArgumentException("Unable to create URI - Invalid Tweet Input " + e);
+    }
+    return uri;
+  }
+
+  private URI getDeleteURI(String id){
+    String uri_base = API_BASE_URI + DEL_PATH;
+    String uri_string = uri_base.replace("id", id);
+    System.out.println(uri_string);
+    URI uri = null;
+    try {
+      uri = new URI(uri_string);
+    } catch (URISyntaxException e) {
+      throw new IllegalArgumentException("Unable to create URI - Invalid Tweet Input " + e);
+    }
+    return uri;
   }
 
   private URI getPostURI(Tweet entity){

@@ -62,9 +62,25 @@ public class TwitterDaoIntTest {
 
   @Test
   public void findById() {
+    String id = "1457261968285372418";
+    Tweet tweet = dao.findById(id);
+    System.out.println("response for reading a tweet by id");
+    try {
+      System.out.println(JsonParser.toJson(tweet, true, false));
+    } catch (JsonProcessingException e) {
+      e.printStackTrace();
+    }
   }
 
   @Test
   public void deleteById() {
+    String id = "1457256815721271300";
+    Tweet tweet = dao.deleteById(id);
+    System.out.println("response for deleting tweet ");
+    try {
+      System.out.println(JsonParser.toJson(tweet, true, false));
+    } catch (JsonProcessingException e) {
+      e.printStackTrace();
+    }
   }
 }
