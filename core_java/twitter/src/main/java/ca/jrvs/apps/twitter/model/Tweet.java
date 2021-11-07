@@ -1,10 +1,26 @@
 package ca.jrvs.apps.twitter.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonIgnoreProperties({
+    "truncated",
+    "source",
+    "in_reply_to_status_id",
+    "in_reply_to_status_id_str",
+    "in_reply_to_user_id",
+    "in_reply_to_user_id_str",
+    "in_reply_to_screen_name",
+    "user",
+    "geo",
+    "place",
+    "contributors",
+    "is_quote_status",
+    "lang"
+})
 @JsonPropertyOrder({
     "created_at",
     "id",
@@ -27,8 +43,8 @@ public class Tweet {
   private String id_str;
   @JsonProperty("text")
   private String text;
-  @JsonProperty("entitles")
-  private Entitles entitles;
+  @JsonProperty("entities")
+  private Entities entities;
   @JsonProperty("coordinates")
   private Coordinates coordinates;
   @JsonProperty("retweet_count")
@@ -80,14 +96,14 @@ public class Tweet {
     this.text = text;
   }
 
-  @JsonProperty("entitles")
-  public Entitles getEntitles() {
-    return entitles;
+  @JsonProperty("entities")
+  public Entities getEntitles() {
+    return entities;
   }
 
-  @JsonProperty("entitles")
-  public void setEntitles(Entitles entitles) {
-    this.entitles = entitles;
+  @JsonProperty("entities")
+  public void setEntitles(Entities entities) {
+    this.entities = entities;
   }
 
   @JsonProperty("coordinates")
