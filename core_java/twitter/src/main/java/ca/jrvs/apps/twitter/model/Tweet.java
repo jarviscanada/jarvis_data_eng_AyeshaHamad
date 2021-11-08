@@ -56,6 +56,14 @@ public class Tweet {
   @JsonProperty("retweeted")
   private boolean retweeted;
 
+  public Tweet() {
+
+  }
+  public Tweet(String text, Coordinates coordinates) {
+    this.text = text;
+    this.coordinates = coordinates;
+  }
+
   @JsonProperty("created_at")
   public String getCreated_at() {
     return created_at;

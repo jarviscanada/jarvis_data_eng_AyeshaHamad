@@ -87,8 +87,8 @@ public class TwitterDao implements CrdDao<Tweet, String>{
     PercentEscaper escaper = new PercentEscaper("", false);
     String status = escaper.escape( entity.getText() );
     String uri_string = API_BASE_URI + POST_PATH + QUERY_SYMBOL + "status" + EQUAL + status
-        + AMPERSAND + "lat" + EQUAL + entity.getCoordinates().getCoordinates()[0]
-        + AMPERSAND + "long" + EQUAL + entity.getCoordinates().getCoordinates()[1];
+        + AMPERSAND + "long" + EQUAL + entity.getCoordinates().getCoordinates()[0]
+        + AMPERSAND + "lat" + EQUAL + entity.getCoordinates().getCoordinates()[1];
     System.out.println(uri_string);
     URI uri = null;
     try {

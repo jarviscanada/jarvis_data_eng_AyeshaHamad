@@ -12,6 +12,10 @@ public class Coordinates {
     return coordinates;
   }
 
+  /**
+   * set {lon, lat}
+   * @param coordinates
+   */
   public void setCoordinates(Float[] coordinates) {
     this.coordinates = coordinates;
   }
