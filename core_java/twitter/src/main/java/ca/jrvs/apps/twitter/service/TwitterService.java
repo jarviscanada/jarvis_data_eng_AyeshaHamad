@@ -5,7 +5,7 @@ import ca.jrvs.apps.twitter.model.Tweet;
 import java.util.ArrayList;
 import java.util.List;
 
-class TwitterService implements Service{
+public class TwitterService implements Service{
 
   private CrdDao dao;
   private static final int TEXT_MAX_LENGTH = 140;
@@ -64,7 +64,7 @@ class TwitterService implements Service{
     if ( !(id.matches("^[0-9]*$")) ) {
       throw new IllegalArgumentException("id should only consist of digits!");
     }
-    if (id.length() > ID_MAX_LENGTH) {
+    if (id.length() < ID_MAX_LENGTH) {
       throw new IllegalArgumentException("id length out of range!");
     }
     return true;

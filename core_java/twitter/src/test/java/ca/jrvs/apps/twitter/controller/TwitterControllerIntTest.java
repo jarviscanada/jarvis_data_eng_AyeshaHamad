@@ -1,17 +1,21 @@
-package ca.jrvs.apps.twitter.service;
+package ca.jrvs.apps.twitter.controller;
+
+import static org.junit.Assert.*;
 
 import ca.jrvs.apps.twitter.dao.TwitterDao;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.example.JsonParser;
 import ca.jrvs.apps.twitter.model.Coordinates;
 import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.service.TwitterService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
-public class TwitterServiceIntTest {
+public class TwitterControllerIntTest {
 
+  private Controller controller;
   private TwitterDao dao;
   private TwitterService service;
 
@@ -28,25 +32,15 @@ public class TwitterServiceIntTest {
 
     this.dao = new TwitterDao(httpHelper);
     this.service = new TwitterService(this.dao);
+    this.controller = new TwitterController(this.service);
+
   }
 
   @Test
   public void postTweet() {
-    String hashTag = "#abc #test";
-    String text = "@Hamad @Jon Testing - API " + hashTag ;
-    Float lat = 49.706486f;
-    Float lon = -89.992193f;
-    Coordinates coordinates = new Coordinates();
-    coordinates.setCoordinates(new Float[]{lon, lat});
-    coordinates.setType("Point");
-    Tweet postTweet = new Tweet(text, coordinates);
-    System.out.println("post tweet object ");
-    try {
-      System.out.println(JsonParser.toJson(postTweet, true, false));
-    } catch (JsonProcessingException e) {
-      e.printStackTrace();
-    }
-    Tweet tweet = service.postTweet(postTweet);
+    String arg = "post Tweet_Text 40:50";
+    String []args = arg.split(" ");
+    Tweet tweet = controller.postTweet(args);
 
     System.out.println("response ");
     try {
@@ -54,17 +48,16 @@ public class TwitterServiceIntTest {
     } catch (JsonProcessingException e) {
       e.printStackTrace();
     }
-    System.out.println(tweet.getText());
-    /*System.out.println(tweet.getCoordinates().getCoordinates().length);
-    System.out.println(tweet.getCoordinates().getCoordinates()[0]);
-    System.out.println(tweet.getCoordinates().getCoordinates()[1]);*/
   }
 
   @Test
-  public void showTweet() {
-    String id = "1457261968285372418";
-    Tweet tweet = service.showTweet(id,null);
-    System.out.println("response for reading a tweet by id");
+  public void showTweet() {//1457587199310970880
+    String arg = "show 1457589082746413057";
+    String []args = arg.split(" ");
+
+    Tweet tweet = controller.showTweet(args);
+
+    System.out.println("response ");
     try {
       System.out.println(JsonParser.toJson(tweet, true, false));
     } catch (JsonProcessingException e) {
@@ -73,13 +66,15 @@ public class TwitterServiceIntTest {
   }
 
   @Test
-  public void deleteTweets() { //1457580135956221956
-    String[] id = {"1457580135956221956"};
-    List<Tweet> deletedList = service.deleteTweets(id);
+  public void deleteTweet() {
+    String arg = "delete 1457589082746413057";
+    String []args = arg.split(" ");
 
-    System.out.println("response for deleting tweet ");
+    List<Tweet> tweetList = controller.deleteTweet(args);
+
+    System.out.println("response ");
     try {
-      for(Tweet tweet: deletedList){
+      for(Tweet tweet: tweetList) {
         System.out.println(JsonParser.toJson(tweet, true, false));
       }
     } catch (JsonProcessingException e) {
