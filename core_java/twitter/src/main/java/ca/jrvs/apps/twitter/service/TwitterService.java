@@ -4,7 +4,9 @@ import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.model.Tweet;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
+@org.springframework.stereotype.Service
 public class TwitterService implements Service{
 
   private CrdDao dao;
@@ -15,6 +17,7 @@ public class TwitterService implements Service{
   private static final float LONG_MAX = 180F;
   private static final float LONG_MIN = -180F;
 
+  @Autowired
   public TwitterService(CrdDao dao) {
     this.dao = dao;
   }
@@ -41,7 +44,7 @@ public class TwitterService implements Service{
     return deletedList;
   }
 
-  private boolean validatePostTweet(Tweet tweet){
+  private void validatePostTweet(Tweet tweet){
     float lon = tweet.getCoordinates().getCoordinates()[0];
     float lat = tweet.getCoordinates().getCoordinates()[1];
 
@@ -57,16 +60,15 @@ public class TwitterService implements Service{
       throw new IllegalArgumentException("The latitude is out of range!");
     }
 
-    return true;
   }
 
-  private boolean validateID(String id){
+  private void validateID(String id){
     if ( !(id.matches("^[0-9]*$")) ) {
       throw new IllegalArgumentException("id should only consist of digits!");
     }
     if (id.length() < ID_MAX_LENGTH) {
       throw new IllegalArgumentException("id length out of range!");
     }
-    return true;
+
   }
 }

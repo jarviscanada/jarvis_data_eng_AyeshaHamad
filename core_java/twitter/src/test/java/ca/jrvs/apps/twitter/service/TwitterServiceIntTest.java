@@ -55,9 +55,9 @@ public class TwitterServiceIntTest {
       e.printStackTrace();
     }
     System.out.println(tweet.getText());
-    /*System.out.println(tweet.getCoordinates().getCoordinates().length);
+    System.out.println(tweet.getCoordinates().getCoordinates().length);
     System.out.println(tweet.getCoordinates().getCoordinates()[0]);
-    System.out.println(tweet.getCoordinates().getCoordinates()[1]);*/
+    System.out.println(tweet.getCoordinates().getCoordinates()[1]);
   }
 
   @Test
@@ -73,7 +73,7 @@ public class TwitterServiceIntTest {
   }
 
   @Test
-  public void deleteTweets() { //1457580135956221956
+  public void deleteTweets() {
     String[] id = {"1457580135956221956"};
     List<Tweet> deletedList = service.deleteTweets(id);
 

@@ -21,7 +21,7 @@ public class TwitterApiTest {
   private static String ACCESS_TOKEN = System.getenv("accessToken");
   private static String ACCESS_SECRET = System.getenv("accessSecret");
 
-  public static void main(String[] args) {
+  public static void mainMethod(String[] args) {
 
     System.out.println("Twitter app");
 

@@ -4,7 +4,9 @@ import ca.jrvs.apps.twitter.model.Coordinates;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.service.Service;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 
+@org.springframework.stereotype.Controller
 public class TwitterController implements Controller{
 
   private Service service;
@@ -12,6 +14,7 @@ public class TwitterController implements Controller{
   private static final String COOR_SEP = ":";
   private static final String COMA = ",";
 
+  @Autowired
   public TwitterController(Service service) {
     this.service = service;
   }
@@ -41,11 +44,11 @@ public class TwitterController implements Controller{
 
   @Override
   public Tweet showTweet(String[] args) {
-    if (args.length != 2 || args[1].length() == 0) {
+    if (args.length < 2 || args.length > 3 || args[1].length() == 0) {
       throw new IllegalArgumentException("USAGE: TwitterCLIApp show \"tweet_id\" \"[field1,fields2,...]\"");
     }
     String id = args[1];
-    String field = null;
+    String field ;
     String[] fieldList = null;
     if(args.length == 3) {
       field = args[2];
@@ -57,7 +60,6 @@ public class TwitterController implements Controller{
 
   @Override
   public List<Tweet> deleteTweet(String[] args) {
-    //USAGE: TwitterApp delete [id1,id2,..]
     if (args.length != 2) {
       throw new IllegalArgumentException("USAGE: TwitterCLIApp delete \"[id1,id2,..]\"");
     }

@@ -7,31 +7,34 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import java.io.IOException;
 
 public class JsonParser {
+
   /**
    * Convert Java Object to JSON string
-   * @param object
-   * @param prettyJson
-   * @param includeNullValues
+   *
+   * @param object            Object you want to parse
+   * @param prettyJson        displays indented json object
+   * @param includeNullValues include null values
    * @return JSON String
-   * @throws JsonProcessingException
+   * @throws JsonProcessingException Exception
    */
   public static String toJson(Object object, boolean prettyJson, boolean includeNullValues)
       throws JsonProcessingException {
     ObjectMapper mapper = new ObjectMapper();
-    if(!includeNullValues) {
+    if (!includeNullValues) {
       mapper.setSerializationInclusion(Include.NON_NULL);
     }
-    if(prettyJson) {
+    if (prettyJson) {
       mapper.enable(SerializationFeature.INDENT_OUTPUT);
     }
     return mapper.writeValueAsString(object);
   }
 
   /**
-   * Parse JSON string to a object
-   * @param json JSON string
+   * Parse JSON string to an object
+   *
+   * @param json  JSON string
    * @param clazz object class
-   * @param <T> Type
+   * @param <T>   Type
    * @return Object
    * @throws IOException
    */

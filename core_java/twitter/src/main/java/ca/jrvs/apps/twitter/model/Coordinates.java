@@ -13,8 +13,7 @@ public class Coordinates {
   }
 
   /**
-   * set {lon, lat}
-   * @param coordinates
+   * @param coordinates set {lon, lat}
    */
   public void setCoordinates(Float[] coordinates) {
     this.coordinates = coordinates;

@@ -1,5 +1,6 @@
 package ca.jrvs.apps.twitter.dao.helper;
 
+import ca.jrvs.apps.twitter.util.Log;
 import java.io.IOException;
 import java.net.URI;
 import oauth.signpost.OAuthConsumer;
@@ -13,8 +14,10 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 
+@org.springframework.stereotype.Component
 public class TwitterHttpHelper implements HttpHelper {
 
   private OAuthConsumer consumer;
@@ -22,12 +25,31 @@ public class TwitterHttpHelper implements HttpHelper {
 
   /**
    * Setup dependencies using Twitter secret keys
-   *
-   * @param consumerKey
-   * @param consumerSecret
-   * @param accessToken
-   * @param accessSecret
    */
+  @Autowired
+  public TwitterHttpHelper() {
+    String consumerKey = System.getenv("consumerKey");
+    String consumerSecret = System.getenv("consumerSecret");
+    String accessToken = System.getenv("accessToken");
+    String accessSecret = System.getenv("accessSecret");
+
+    if(consumerKey == null  || consumerSecret == null  || accessSecret == null  || accessToken == null) {
+      Log.logger.error("Null key values");
+      consumerKey = System.getProperty("consumerKey");
+      consumerSecret = System.getProperty("consumerSecret");
+      accessToken = System.getProperty("accessToken");
+      accessSecret = System.getProperty("accessSecret");
+      if(consumerKey == null  || consumerSecret == null  || accessSecret == null  || accessToken == null) {
+        Log.logger.error("Null key values with getProperty");
+      }
+    }
+
+    consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
+    consumer.setTokenWithSecret(accessToken, accessSecret);
+    httpClient = new DefaultHttpClient();
+  }
+
+
   public TwitterHttpHelper(String consumerKey, String consumerSecret, String accessToken,
       String accessSecret) {
     consumer = new CommonsHttpOAuthConsumer(consumerKey, consumerSecret);
@@ -40,7 +62,7 @@ public class TwitterHttpHelper implements HttpHelper {
     try {
       return executeHttpRequest(HttpMethod.POST, uri, null);
     } catch (OAuthMessageSignerException | OAuthExpectationFailedException | OAuthCommunicationException | IOException e) {
-      throw new RuntimeException("Unable to execute Http request " + e);
+      throw new RuntimeException("Unable to execute Http request ", e);
     }
   }
 
@@ -49,7 +71,7 @@ public class TwitterHttpHelper implements HttpHelper {
     try {
       return executeHttpRequest(HttpMethod.GET, uri, null);
     } catch (OAuthMessageSignerException | OAuthExpectationFailedException | OAuthCommunicationException | IOException e) {
-      throw new RuntimeException("Unable to execute Http request " + e);
+      throw new RuntimeException("Unable to execute Http request ", e);
     }
   }
 
@@ -71,4 +93,5 @@ public class TwitterHttpHelper implements HttpHelper {
       throw new IllegalArgumentException("Unknown HTTP method " + method.name());
     }
   }
+
 }

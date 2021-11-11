@@ -7,12 +7,14 @@ import ca.jrvs.apps.twitter.example.JsonParser;
 import ca.jrvs.apps.twitter.model.Coordinates;
 import ca.jrvs.apps.twitter.model.Tweet;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class TwitterDaoIntTest {
 
   private TwitterDao dao;
+  private String testId = "1458710115889164296";
   @Before
   public void setUp() throws Exception {
     String CONSUMER_KEY = System.getenv("consumerKey");
@@ -20,10 +22,10 @@ public class TwitterDaoIntTest {
     String ACCESS_TOKEN = System.getenv("accessToken");
     String ACCESS_SECRET = System.getenv("accessSecret");
 
-    System.out.println("Keys\n" + CONSUMER_KEY + "\n" + CONSUMER_SECRET + "\n" + ACCESS_SECRET + "\n" + ACCESS_TOKEN);
+    System.out.println("Keys\n" + CONSUMER_KEY + "\n" + CONSUMER_SECRET + "\n"
+        + ACCESS_SECRET + "\n" + ACCESS_TOKEN);
 
     TwitterHttpHelper httpHelper = new TwitterHttpHelper(CONSUMER_KEY, CONSUMER_SECRET,ACCESS_TOKEN, ACCESS_SECRET);
-
     this.dao = new TwitterDao(httpHelper);
   }
 
@@ -31,56 +33,47 @@ public class TwitterDaoIntTest {
   public void create() {
     Tweet postTweet = new Tweet();
     String hashTag = "#abc #test";
-    String text = "@Hamad @Jon Testing Twitter - - API " + hashTag ;
+    String text = "Testing Twitter DAO @Test " + hashTag + System.currentTimeMillis();
+
     Float lat = 49.706486f;
-    Float lon = -96.992193f;
-    //Double [] coord = new Double[]{lat, lon};
+    Float lon = -86.992193f;
     Coordinates coordinates = new Coordinates();
-    coordinates.setCoordinates(new Float[]{lat, lon});
+    coordinates.setCoordinates(new Float[]{lon, lat});
     coordinates.setType("Point");
+
     postTweet.setText(text);
     postTweet.setCoordinates(coordinates);
-    System.out.println("post tweet object ");
-    try {
-      System.out.println(JsonParser.toJson(postTweet, true, false));
-    } catch (JsonProcessingException e) {
-      e.printStackTrace();
-    }
-    Tweet tweet = dao.create(postTweet);
 
-    System.out.println("response ");
-    try {
-      System.out.println(JsonParser.toJson(tweet, true, false));
-    } catch (JsonProcessingException e) {
-      e.printStackTrace();
-    }
-    System.out.println(tweet.getText());
-    /*System.out.println(tweet.getCoordinates().getCoordinates().length);
-    System.out.println(tweet.getCoordinates().getCoordinates()[0]);
-    System.out.println(tweet.getCoordinates().getCoordinates()[1]);*/
+    Tweet tweet = dao.create(postTweet);
+    testId = tweet.getId_str();
+    System.out.println(testId);
+    assertEquals(text, tweet.getText());
+    assertNotNull(tweet.getCoordinates());
+    assertEquals(2,tweet.getCoordinates().getCoordinates().length);
+    assertEquals(lon, tweet.getCoordinates().getCoordinates()[0]);
+    assertEquals(lat, tweet.getCoordinates().getCoordinates()[1]);
   }
 
   @Test
   public void findById() {
-    String id = "1457261968285372418";
+    String id = testId;
+    System.out.println(testId);
     Tweet tweet = dao.findById(id);
-    System.out.println("response for reading a tweet by id");
-    try {
-      System.out.println(JsonParser.toJson(tweet, true, false));
-    } catch (JsonProcessingException e) {
-      e.printStackTrace();
-    }
+
+    assertNotNull(tweet.getText());
+    assertNotNull(tweet.getCoordinates());
+    assertEquals(2,tweet.getCoordinates().getCoordinates().length);
+
   }
 
   @Test
   public void deleteById() {
-    String id = "1457256815721271300";
+    String id = testId;
+    System.out.println(testId);
     Tweet tweet = dao.deleteById(id);
-    System.out.println("response for deleting tweet ");
-    try {
-      System.out.println(JsonParser.toJson(tweet, true, false));
-    } catch (JsonProcessingException e) {
-      e.printStackTrace();
-    }
+
+    assertNotNull(tweet.getText());
+    assertNotNull(tweet.getCoordinates());
+    assertEquals(2,tweet.getCoordinates().getCoordinates().length);
   }
 }
