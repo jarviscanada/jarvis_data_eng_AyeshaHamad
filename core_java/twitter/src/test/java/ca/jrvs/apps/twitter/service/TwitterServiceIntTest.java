@@ -33,7 +33,7 @@ public class TwitterServiceIntTest {
   @Test
   public void postTweet() {
     String hashTag = "#abc #test";
-    String text = "@Hamad @Jon Testing - API " + hashTag ;
+    String text = "@Hamad @Jon Testing - API " + hashTag + System.currentTimeMillis();
     Float lat = 49.706486f;
     Float lon = -89.992193f;
     Coordinates coordinates = new Coordinates();
@@ -62,8 +62,8 @@ public class TwitterServiceIntTest {
 
   @Test
   public void showTweet() {
-    String id = "1457261968285372418";
-    Tweet tweet = service.showTweet(id,null);
+    String id = "1458950048801337349";
+    Tweet tweet = service.showTweet(id,new String[]{"id", "created_at"});
     System.out.println("response for reading a tweet by id");
     try {
       System.out.println(JsonParser.toJson(tweet, true, false));

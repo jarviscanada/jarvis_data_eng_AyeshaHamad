@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 public class HashTag {
 
   private String text;
-  private int[] indices;
+  private Integer[] indices;
 
   public String getText() {
     return text;
@@ -16,11 +16,11 @@ public class HashTag {
     this.text = text;
   }
 
-  public int[] getIndices() {
+  public Integer[] getIndices() {
     return indices;
   }
 
-  public void setIndices(int[] indices) {
+  public void setIndices(Integer[] indices) {
     this.indices = indices;
   }
 }

@@ -29,6 +29,7 @@ public class JsonParser {
     return mapper.writeValueAsString(object);
   }
 
+
   /**
    * Parse JSON string to an object
    *

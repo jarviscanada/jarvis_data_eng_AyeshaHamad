@@ -5,17 +5,17 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserMention {
 
-  private long id;
+  private Long id;
   private String id_str;
   private String name;
-  private int[] indices;
+  private Integer[] indices;
   private String screen_name;
 
-  public long getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(long id) {
+  public void setId(Long id) {
     this.id = id;
   }
 
@@ -35,11 +35,11 @@ public class UserMention {
     this.name = name;
   }
 
-  public int[] getIndices() {
+  public Integer[] getIndices() {
     return indices;
   }
 
-  public void setIndices(int[] indices) {
+  public void setIndices(Integer[] indices) {
     this.indices = indices;
   }
 
