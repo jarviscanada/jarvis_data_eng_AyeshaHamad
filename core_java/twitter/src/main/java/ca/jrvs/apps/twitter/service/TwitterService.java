@@ -3,7 +3,6 @@ package ca.jrvs.apps.twitter.service;
 import ca.jrvs.apps.twitter.dao.CrdDao;
 import ca.jrvs.apps.twitter.model.Tweet;
 import ca.jrvs.apps.twitter.util.Log;
-import com.fasterxml.jackson.core.JsonParser;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -22,8 +21,7 @@ public class TwitterService implements Service {
   private static final float LONG_MAX = 180F;
   private static final float LONG_MIN = -180F;
   private String[] jsonFields = new String[]{"created_at", "id", "id_str", "text", "entities",
-      "coordinates",
-      "retweet_count", "favorite_count", "favorited", "retweeted"};
+      "coordinates", "retweet_count", "favorite_count", "favorited", "retweeted"};
 
   @Autowired
   public TwitterService(CrdDao dao) {
@@ -41,8 +39,46 @@ public class TwitterService implements Service {
     validateID(id);
     validateFields(fields);
     Tweet tweet = (Tweet) dao.findById(id);
-    markNullTweetFields(tweet, fields);
+    if(fields != null) {
+      markNullTweetFields(tweet, fields);
+    }
     return tweet;
+  }
+
+  @Override
+  public List<Tweet> deleteTweets(String[] ids) {
+    List<Tweet> deletedList = new ArrayList<>();
+    for (String id : ids) {
+      validateID(id);
+      deletedList.add((Tweet) dao.deleteById(id));
+    }
+    return deletedList;
+  }
+
+  private void validatePostTweet(Tweet tweet) {
+    float lon = tweet.getCoordinates().getCoordinates()[0];
+    float lat = tweet.getCoordinates().getCoordinates()[1];
+
+    if (tweet.getText().length() > TEXT_MAX_LENGTH) {
+      throw new IllegalArgumentException("Invalid text input!");
+    }
+
+    if (!(lon >= LONG_MIN && lon <= LONG_MAX)) {
+      throw new IllegalArgumentException("The longitude is out of range!");
+    }
+
+    if (!(lat >= LAT_MIN && lat <= LAT_MAX)) {
+      throw new IllegalArgumentException("The latitude is out of range!");
+    }
+  }
+
+  private void validateID(String id) {
+    if (!(id.matches("^[0-9]*$"))) {
+      throw new IllegalArgumentException("id should only consist of digits!");
+    }
+    if (id.length() < ID_MAX_LENGTH) {
+      throw new IllegalArgumentException("id length out of range!");
+    }
   }
 
   private void markNullTweetFields(Tweet tweet, String[] fields) {
@@ -50,21 +86,23 @@ public class TwitterService implements Service {
     List list = Arrays.stream(fields).map(s -> s.toLowerCase()).collect(Collectors.toList());
     HashSet<String> fieldSet = new HashSet<>(list);
 
-    //collect null fields
+    //collect fields you want to mark null
     for (String field : jsonFields) {
       if (!fieldSet.contains(field)) {
         setNullFields.add(field);
       }
     }
+
     //check if user entered fields are already null/empty
     //if its null display original tweet object
-    boolean flag = false;
+    boolean isFieldAlreadyNull = false;
     for (String field : fieldSet) {
       if (isAttributeNull(tweet, field) == true) {
-        flag = true;
+        isFieldAlreadyNull = true;
       }
     }
-    if (flag == false) {
+
+    if (isFieldAlreadyNull == false) {
       //replace null fields to null
       for (String field : setNullFields) {
         switch (field.toLowerCase()) {
@@ -104,7 +142,6 @@ public class TwitterService implements Service {
   }
 
   private boolean isAttributeNull(Tweet tweet, String field) {
-
     boolean flag = false;
     switch (field) {
       case "created_at":
@@ -172,43 +209,5 @@ public class TwitterService implements Service {
         }
       }
     }
-  }
-
-  @Override
-  public List<Tweet> deleteTweets(String[] ids) {
-    List<Tweet> deletedList = new ArrayList<>();
-    for (String id : ids) {
-      validateID(id);
-      deletedList.add((Tweet) dao.deleteById(id));
-    }
-    return deletedList;
-  }
-
-  private void validatePostTweet(Tweet tweet) {
-    float lon = tweet.getCoordinates().getCoordinates()[0];
-    float lat = tweet.getCoordinates().getCoordinates()[1];
-
-    if (tweet.getText().length() > TEXT_MAX_LENGTH) {
-      throw new IllegalArgumentException("Invalid text input!");
-    }
-
-    if (!(lon >= LONG_MIN && lon <= LONG_MAX)) {
-      throw new IllegalArgumentException("The longitude is out of range!");
-    }
-
-    if (!(lat >= LAT_MIN && lat <= LAT_MAX)) {
-      throw new IllegalArgumentException("The latitude is out of range!");
-    }
-
-  }
-
-  private void validateID(String id) {
-    if (!(id.matches("^[0-9]*$"))) {
-      throw new IllegalArgumentException("id should only consist of digits!");
-    }
-    if (id.length() < ID_MAX_LENGTH) {
-      throw new IllegalArgumentException("id length out of range!");
-    }
-
   }
 }

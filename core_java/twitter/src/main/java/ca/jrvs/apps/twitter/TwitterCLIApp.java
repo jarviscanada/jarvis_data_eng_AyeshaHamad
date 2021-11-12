@@ -28,7 +28,7 @@ public class TwitterCLIApp {
     this.controller = controller;
   }
 
-  /*public static void main(String[] args) {
+  public static void main(String[] args) {
 
     System.out.println(
         "Keys\n" + CONSUMER_KEY + "\n" + CONSUMER_SECRET + "\n" + ACCESS_SECRET + "\n" + ACCESS_TOKEN);
@@ -39,7 +39,7 @@ public class TwitterCLIApp {
     TwitterCLIApp app = new TwitterCLIApp(controller);
 
     app.run(args);
-  }*/
+  }
 
   public void run(String[] args) {
     if (args.length == 0) {
@@ -71,11 +71,3 @@ public class TwitterCLIApp {
     }
   }
 }
-//remove these
-//1458453461301878787
-//create
-//post "tweet_text_test" 40:-40
-//show
-//show 1458453461301878787
-//delete
-//delete 1458453461301878787

@@ -33,31 +33,36 @@ public class TwitterControllerIntTest {
 
   @Test
   public void postTweet() {
-    String arg = "post Tweet_Text 40:50";
+    String text = "Tweet_Text_" +System.currentTimeMillis();
+    String arg = "post " + text + " 40:50";
     String []args = arg.split(" ");
-    Tweet tweet = controller.postTweet(args);
+    String[] coord =  args[2].split(":");
+    Float lat = Float.parseFloat(coord[0]);
+    Float lon = Float.parseFloat(coord[1]);
+    Tweet responseTweet = controller.postTweet(args);
 
-    System.out.println("response ");
-    try {
-      System.out.println(JsonParser.toJson(tweet, true, false));
-    } catch (JsonProcessingException e) {
-      e.printStackTrace();
-    }
+    assertEquals(args[1], responseTweet.getText());
+    assertNotNull(responseTweet.getCoordinates());
+    assertEquals(2,responseTweet.getCoordinates().getCoordinates().length);
+    assertEquals(lon, responseTweet.getCoordinates().getCoordinates()[0]);
+    assertEquals(lat, responseTweet.getCoordinates().getCoordinates()[1]);
   }
 
   @Test
   public void showTweet() {
-    String arg = "show 1457589082746413057";
+    String arg = "show 1459279723159330825 text,coordinateS";
     String []args = arg.split(" ");
+    Tweet responseTweet = controller.showTweet(args);
 
-    Tweet tweet = controller.showTweet(args);
-
-    System.out.println("response ");
     try {
-      System.out.println(JsonParser.toJson(tweet, true, false));
+      Log.logger.info(JsonParser.toJson(responseTweet, true, false));
     } catch (JsonProcessingException e) {
-      e.printStackTrace();
+      Log.logger.error("Unable to parse Json string", e);
     }
+
+    assertNotNull(responseTweet.getText());
+    assertNull(responseTweet.getCreated_at());
+    assertNull(responseTweet.getId());
   }
 
   @Test
@@ -65,15 +70,19 @@ public class TwitterControllerIntTest {
     String arg = "delete 1457589082746413057";
     String []args = arg.split(" ");
 
-    List<Tweet> tweetList = controller.deleteTweet(args);
+    List<Tweet> deletedList = controller.deleteTweet(args);
 
-    System.out.println("response ");
     try {
-      for(Tweet tweet: tweetList) {
-        System.out.println(JsonParser.toJson(tweet, true, false));
+      for(Tweet tweet: deletedList){
+        Log.logger.info(JsonParser.toJson(tweet, true, false));
       }
     } catch (JsonProcessingException e) {
-      e.printStackTrace();
+      Log.logger.error("Unable to parse Json string", e);
     }
+
+    assertNotNull(deletedList.get(0).getText());
+    assertNotNull(deletedList.get(0).getCoordinates());
+    assertEquals(args[1],deletedList.get(0).getId_str());
+    assertEquals(2,deletedList.get(0).getCoordinates().getCoordinates().length);
   }
 }

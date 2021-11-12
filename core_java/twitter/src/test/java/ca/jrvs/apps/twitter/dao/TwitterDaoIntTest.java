@@ -31,7 +31,6 @@ public class TwitterDaoIntTest {
 
   @Test
   public void create() {
-    Tweet postTweet = new Tweet();
     String hashTag = "#abc #test";
     String text = "Testing Twitter DAO @Test " + hashTag + System.currentTimeMillis();
 
@@ -39,41 +38,39 @@ public class TwitterDaoIntTest {
     Float lon = -86.992193f;
     Coordinates coordinates = new Coordinates();
     coordinates.setCoordinates(new Float[]{lon, lat});
-    coordinates.setType("Point");
+    //coordinates.setType("Point");
 
-    postTweet.setText(text);
-    postTweet.setCoordinates(coordinates);
+    Tweet postTweet = new Tweet(text, coordinates);
+    Tweet responseTweet = dao.create(postTweet);
 
-    Tweet tweet = dao.create(postTweet);
-    testId = tweet.getId_str();
-    System.out.println(testId);
-    assertEquals(text, tweet.getText());
-    assertNotNull(tweet.getCoordinates());
-    assertEquals(2,tweet.getCoordinates().getCoordinates().length);
-    assertEquals(lon, tweet.getCoordinates().getCoordinates()[0]);
-    assertEquals(lat, tweet.getCoordinates().getCoordinates()[1]);
+    assertEquals(text, responseTweet.getText());
+    assertNotNull(responseTweet.getCoordinates());
+    assertEquals(2,responseTweet.getCoordinates().getCoordinates().length);
+    assertEquals(lon, responseTweet.getCoordinates().getCoordinates()[0]);
+    assertEquals(lat, responseTweet.getCoordinates().getCoordinates()[1]);
   }
 
   @Test
   public void findById() {
-    String id = testId;
+    String id = "1459275714990071813";
     System.out.println(testId);
     Tweet tweet = dao.findById(id);
 
     assertNotNull(tweet.getText());
     assertNotNull(tweet.getCoordinates());
+    assertEquals(id,tweet.getId_str());
     assertEquals(2,tweet.getCoordinates().getCoordinates().length);
 
   }
 
   @Test
   public void deleteById() {
-    String id = testId;
-    System.out.println(testId);
+    String id = "1459276537883152394";
     Tweet tweet = dao.deleteById(id);
 
     assertNotNull(tweet.getText());
     assertNotNull(tweet.getCoordinates());
+    assertEquals(id,tweet.getId_str());
     assertEquals(2,tweet.getCoordinates().getCoordinates().length);
   }
 }

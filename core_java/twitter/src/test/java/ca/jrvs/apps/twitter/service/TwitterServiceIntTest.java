@@ -1,10 +1,14 @@
 package ca.jrvs.apps.twitter.service;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
 import ca.jrvs.apps.twitter.dao.TwitterDao;
 import ca.jrvs.apps.twitter.dao.helper.TwitterHttpHelper;
 import ca.jrvs.apps.twitter.example.JsonParser;
 import ca.jrvs.apps.twitter.model.Coordinates;
 import ca.jrvs.apps.twitter.model.Tweet;
+import ca.jrvs.apps.twitter.util.Log;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.util.List;
 import org.junit.Before;
@@ -22,10 +26,10 @@ public class TwitterServiceIntTest {
     String ACCESS_TOKEN = System.getenv("accessToken");
     String ACCESS_SECRET = System.getenv("accessSecret");
 
-    System.out.println("Keys\n" + CONSUMER_KEY + "\n" + CONSUMER_SECRET + "\n" + ACCESS_SECRET + "\n" + ACCESS_TOKEN);
+    System.out.println("Keys\n" + CONSUMER_KEY + "\n" + CONSUMER_SECRET + "\n" + ACCESS_SECRET
+        + "\n" + ACCESS_TOKEN);
 
     TwitterHttpHelper httpHelper = new TwitterHttpHelper(CONSUMER_KEY, CONSUMER_SECRET,ACCESS_TOKEN, ACCESS_SECRET);
-
     this.dao = new TwitterDao(httpHelper);
     this.service = new TwitterService(this.dao);
   }
@@ -33,57 +37,65 @@ public class TwitterServiceIntTest {
   @Test
   public void postTweet() {
     String hashTag = "#abc #test";
-    String text = "@Hamad @Jon Testing - API " + hashTag + System.currentTimeMillis();
+    String text = "Testing Twitter Service @Test " + hashTag + System.currentTimeMillis();
+
     Float lat = 49.706486f;
-    Float lon = -89.992193f;
+    Float lon = -86.992193f;
     Coordinates coordinates = new Coordinates();
     coordinates.setCoordinates(new Float[]{lon, lat});
-    coordinates.setType("Point");
-    Tweet postTweet = new Tweet(text, coordinates);
-    System.out.println("post tweet object ");
-    try {
-      System.out.println(JsonParser.toJson(postTweet, true, false));
-    } catch (JsonProcessingException e) {
-      e.printStackTrace();
-    }
-    Tweet tweet = service.postTweet(postTweet);
+    //coordinates.setType("Point");
 
-    System.out.println("response ");
+    Tweet postTweet = new Tweet(text, coordinates);
+    Tweet responseTweet = service.postTweet(postTweet);
+
+    assertEquals(text, responseTweet.getText());
+    assertNotNull(responseTweet.getCoordinates());
+    assertEquals(2,responseTweet.getCoordinates().getCoordinates().length);
+    assertEquals(lon, responseTweet.getCoordinates().getCoordinates()[0]);
+    assertEquals(lat, responseTweet.getCoordinates().getCoordinates()[1]);
+
     try {
-      System.out.println(JsonParser.toJson(tweet, true, false));
+      Log.logger.info(JsonParser.toJson(responseTweet, true, false));
     } catch (JsonProcessingException e) {
-      e.printStackTrace();
+      Log.logger.error("Unable to parse Json string", e);
     }
-    System.out.println(tweet.getText());
-    System.out.println(tweet.getCoordinates().getCoordinates().length);
-    System.out.println(tweet.getCoordinates().getCoordinates()[0]);
-    System.out.println(tweet.getCoordinates().getCoordinates()[1]);
   }
 
   @Test
   public void showTweet() {
-    String id = "1458950048801337349";
-    Tweet tweet = service.showTweet(id,new String[]{"id", "created_at"});
-    System.out.println("response for reading a tweet by id");
+    String id = "1459279723159330825";
+    String[] fields = new String[]{"id", "created_at", "text"};
+    Tweet responseTweet = service.showTweet(id, fields);
+
     try {
-      System.out.println(JsonParser.toJson(tweet, true, false));
+      Log.logger.info(JsonParser.toJson(responseTweet, true, false));
     } catch (JsonProcessingException e) {
-      e.printStackTrace();
+      Log.logger.error("Unable to parse Json string", e);
     }
+
+    assertNotNull(responseTweet.getText());
+    assertNotNull(responseTweet.getCreated_at());
+    assertNotNull(responseTweet.getId());
+    assertEquals(id,responseTweet.getId().toString());
+
   }
 
   @Test
   public void deleteTweets() {
-    String[] id = {"1457580135956221956"};
+    String[] id = {"1459282658148687880"};
     List<Tweet> deletedList = service.deleteTweets(id);
 
-    System.out.println("response for deleting tweet ");
     try {
       for(Tweet tweet: deletedList){
-        System.out.println(JsonParser.toJson(tweet, true, false));
+        Log.logger.info(JsonParser.toJson(tweet, true, false));
       }
     } catch (JsonProcessingException e) {
-      e.printStackTrace();
+      Log.logger.error("Unable to parse Json string", e);
     }
+
+    assertNotNull(deletedList.get(0).getText());
+    assertNotNull(deletedList.get(0).getCoordinates());
+    assertEquals(id[0],deletedList.get(0).getId_str());
+    assertEquals(2,deletedList.get(0).getCoordinates().getCoordinates().length);
   }
 }
