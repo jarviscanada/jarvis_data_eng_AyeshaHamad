@@ -1,0 +1,111 @@
+# Preferred name (Characters only)
+name: "Ayesha Hamad"
+# Your GitHub repo root URL
+github_repo_root_url: https://github.com/jarviscanada/jarvis_data_eng_AyeshaHamad
+
+# Introduce yourself, your academic and professional background.
+# What excites you about the software industry and your passion. At least 80 words
+summary: "I have done BS in Computer Science and have three years of programming experience in application development. I have also completed Full Stack Java Development and Software Automation Quality Assurance courses. To pursue my career further in Software Development, I also took some certifications; I am Certified Automation Tester and SCRUM Tester. What really excites me is that the Software industry is ruling the world, and I have always wanted to be a part of it. I like to code and develop applications and programs, and doing what you like most increases your creativity and productivity. I have good experience of Scrum and Agile methodologies. Skills in analyzing Business Requirements and Functional Specifications. Ability to identify, analyze and solve problems. I have excellent communication and interpersonal skills and am always willing to learn new technologies and adapting new environments."
+
+# Group your skills by level.
+# Your skills can be anything software related (e.g. language, frameworks, methodologies, software, etc.).
+skills:
+  # At least 5 skills
+  proficient:
+    - Java
+    - C++
+    - OOP
+    - Data Structures
+    - Design Patterns
+    - Linux/Bash
+    - RDBMS/SQL
+    - JDBC
+    - Maven
+    - Docker
+    - SDLC
+    - Agile/Scrum
+    - Git/GitHub
+    - IntelliJ
+  # At least 5 skills
+  competent:
+    - Unit and Integration Testing
+    - Test scripting using UFT (QTP)
+    - Selenium WebDriver (JAVA) implementing Page Object Model and TestNG
+    - ALM Octane (QC)
+    - Jira
+    - Manual Testing/Test cases
+  # At least 5 skills
+  familiar:
+    - Rest API
+    - Obj-C
+    - C# .Net
+    - SOAP UI - Testing Web Services
+    - Web designing
+
+# List of Jarvis projects
+jarvis_projects:
+  - name: "Cluster Monitor"
+    git_url: "/linux_sql"
+    # The project description allows hiring managers to understand your project and technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Implemented a Monitoring Agent for the Linux admin team with Bash Scripts, PostgreSQL, PSQL Client Tool, Crontab, SQL queries, Docker, etc. The LCA team can get hardware specifications and software utilization like memory/CPU management and generate reports with the help of the data saved in the database and executing SQL queries. These reports will further help the LCA team decide whether they want to increase hardware/software specifications or not if the system is fully or underutilized."
+  - name: "Core Java Apps"
+    git_url: "/core_java"
+    description:
+      - "JDBC App: Designed a 'Customer Order Processing System' using JDBC, Data Access Object (DAO), and Data Transfer Object (DTO) Design Pattern, Postgres SQL, PSQL Client Tool, Maven, Docker to create Psql container, IntelliJ, and DBeaver. I have used JDBC to access data from RDBMS. The advantage of JDBC is that an application created using JDBC can access a variety of relational databases and run on any platform with a Java Virtual Machine. In this application, you can read, write, update, and delete (CURD) data against an RDBMS database."
+      - "Grep App: Created a program that simulates the Linux grep command searching for a specified text pattern in an input file. Implementation includes ArrayList, FileReader/FileWriter, BufferedReader/BufferedWriter, Regex Pattern, Maven, and Docker to dockerize and deploy the app. This program works in a way that it traverses the 'root directory' that you enter and looks for files and sub-directories further in it. Searches the entered string in all those files and saves all matching lines to a text file."
+
+# List of personal or academic projects
+# Feel free to add more projects
+highlighted_projects:
+  #project name
+  - name: "Photo Editor - Filters and Effect"
+    #URL is optional
+    git_url: ""
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Created Photo Editor app using C++ and OpenCV library. Added number of filters manipulating RBG pixels of the image with the help of OpenCV."
+
+#List of professional experience
+#The job description allows hiring managers to understand your job and the technologies you used(e.g. programming languages, libraries, algorithms, hardware, tools, etc.).
+#The description must be more than 25 words. If your experience is not software related, please focus on soft skills and achievements (e.g. team collaboration, problem-solving, improvements, communication).
+professional_experience:
+  #Write your Jarvis role as a professional experience rather than training.
+  - title: "Software Developer"
+    company: "Jarvis"
+    duration: "2021-present"
+    # The project description must start with an action verb (https://bit.ly/3guO98u)
+    description: "Working as a Software Developer, creating Java Applications using Core Java concepts, OOP, Data Structures, RDBMS/SQL, JDBC, Maven, etc. Implementing SCRUM and AGILE methodologies and appropriate SDLC, analyzing Business Requirements and Functional Specifications, identifying Test Scenarios, and deploying the application. "
+  - title: "Software Engineer"
+    company: "FiveRivers Technologies, Lahore, Pakistan"
+    duration: "2011-2014"
+    description: "Worked on Marmalade - a cross-platform for mobile application development using C++ and developed android and IOS applications. My basic dedication was creating the Photo Editor app in pepper.pk integrating openCV and photoshop algorithms to create filters. **Key Responsibilities:** Created Photo Editor App using Marmalade, for android and IOS. Created android and IOS extensions to add monetizations and other SDKs to marmalade platforms like Revmob, StartApp, Leadbolt, Google Ad mediation, Flurry, Crittercism using JNI, Java, Obj-C, and marmalade EDK (extension development kit). Maintained existing programs by modifying as required and making the code reusable. Wrote, modified, integrated, and tested software code. Wrote test cases for each module to ensure a bug-free and robust code. Gathered and Understood user requirements to develop logical specifications."
+
+#List of edcuation
+education: 
+  - school_name: "Punjab University, Lahore, Pakistan"
+    duration: "2007-2011"
+    degree: "Bachelor of Science in Computer Science"
+    department: "College of Information and Technology"
+    # optional
+    awards_achievements:
+  - school_name: "Com IT, Winnipeg, Canada"
+    duration: "June 2018-Sep 2018"
+    degree: "Full Stack Java Development"
+    department: "IT"
+    # optional
+    awards_achievements:
+  - school_name: "Justwin IT Solutions, Brampton, Canada"
+    duration: "Jan 2021-Apr 2021"
+    degree: "Quality Assurance: Manual and Automation Testing"
+    department: "IT"
+    # optional
+    awards_achievements:
+#Optional section
+others:
+    #category
+  - title: "Certifications"
+    #list of items
+    bullets:
+      - "Endorsed Automation Tester Certification"
+      - "Endorsed Manual Tester Certification"
+      - "Endorsed Scrum Tester Certification"
