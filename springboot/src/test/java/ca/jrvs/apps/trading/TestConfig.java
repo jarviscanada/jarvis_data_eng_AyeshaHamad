@@ -12,9 +12,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @ComponentScan(basePackages = {"ca.jrvs.apps.trading.dao", "ca.jrvs.apps.trading.service"})
-public class AppConfig {
+public class TestConfig {
 
-  private Logger logger = LoggerFactory.getLogger(AppConfig.class);
+  private Logger logger = LoggerFactory.getLogger(TestConfig.class);
 
   @Bean
   public MarketDataConfig marketDataConfig() {
@@ -34,10 +34,12 @@ public class AppConfig {
 
   @Bean
   public DataSource dataSource(){
+    logger.info("in data source");
     String jdbcUrl ="jdbc:postgresql://" +
         System.getenv("PSQL_HOST") + ":" +
         System.getenv("PSQL_PORT") + "/" +
         System.getenv("PSQL_DB");
+    logger.info(jdbcUrl);
     String user = System.getenv("PSQL_USER");
     String password = System.getenv("PSQL_PASSWORD");
 

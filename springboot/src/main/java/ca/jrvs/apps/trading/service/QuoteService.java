@@ -34,5 +34,5 @@ public class QuoteService {
     return (List<IexQuote>) marketDataDao.findAllById(tickers);
   }
 
-  
+
 }
