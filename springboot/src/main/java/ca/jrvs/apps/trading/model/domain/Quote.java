@@ -10,7 +10,12 @@ public class Quote implements Entity<String>{
   private Integer askSize;
 
   public Quote() {
-
+    ticker = "";
+    lastPrice = 0d;
+    bidPrice = 0d;
+    bidSize = 0;
+    askPrice = 0d;
+    askSize = 0;
   }
 
   public Quote(Quote quote) {

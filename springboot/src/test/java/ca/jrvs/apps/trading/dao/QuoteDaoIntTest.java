@@ -30,7 +30,7 @@ public class QuoteDaoIntTest {
     quoteSaved.setAskSize(10);
     quoteSaved.setBidPrice(20.2d);
     quoteSaved.setBidSize(10);
-    quoteSaved.setId("XYZ");
+    quoteSaved.setId("FRC");
     quoteSaved.setLastPrice(10.5);
     quoteDao.save(quoteSaved);
   }
@@ -39,18 +39,17 @@ public class QuoteDaoIntTest {
   public void deleteOne() {
     //working
     //tested
-    quoteDao.deleteById(quoteSaved.getId());
-    quoteDao.deleteAll();
+    //quoteDao.deleteById(quoteSaved.getId());
+    //quoteDao.deleteAll();
   }
 
   @Test
   public void test() {
     assertEquals(true, quoteDao.existsById(quoteSaved.getId()));
-    assertEquals(5, quoteDao.count());
+    assertEquals(6, quoteDao.count());
     List<Quote> list = (List<Quote>) quoteDao.findAll();
     for(Quote quote : list) {
       System.out.println(quote.getId());
     }
-
   }
 }
