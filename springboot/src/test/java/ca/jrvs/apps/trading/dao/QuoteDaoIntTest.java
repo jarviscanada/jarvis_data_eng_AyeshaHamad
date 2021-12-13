@@ -21,7 +21,7 @@ public class QuoteDaoIntTest {
   @Autowired
   private QuoteDao quoteDao ;
 
-  private Quote quoteSaved = new Quote();
+  private Quote quoteSaved ;
 
   @Before
   public void insertOne() {

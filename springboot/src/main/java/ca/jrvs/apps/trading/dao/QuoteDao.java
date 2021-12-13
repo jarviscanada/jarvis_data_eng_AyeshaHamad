@@ -20,6 +20,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class QuoteDao implements CrudRepository<Quote, String> {
 
+  //make this class extend JdbcCrudDao
+  //update later
   private static final Logger logger = LoggerFactory.getLogger(QuoteDao.class);
 
   private static final String TABLE_NAME = "quote";
