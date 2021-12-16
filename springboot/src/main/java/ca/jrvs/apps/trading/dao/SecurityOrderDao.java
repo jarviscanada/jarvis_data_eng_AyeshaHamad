@@ -56,8 +56,9 @@ public class SecurityOrderDao extends JdbcCrudDao<SecurityOrder>{
   @Override
   public <S extends SecurityOrder> int updateOne(S entity) {
     String sql = "UPDATE " + TABLE_NAME + " SET "
-        + " account_id=?, status=?, ticker=?, 'size'=?, price=?, notes=? WHERE " + ID_COLUMN_NAME + "=?";
+        + "account_id=?, status=?, ticker=?, size=?, price=?, notes=? WHERE " + ID_COLUMN_NAME + "=?";
     return jdbcTemplate.update(sql, makeUpdateValues(entity));
+
   }
 
   private Object[] makeUpdateValues (SecurityOrder entity) {

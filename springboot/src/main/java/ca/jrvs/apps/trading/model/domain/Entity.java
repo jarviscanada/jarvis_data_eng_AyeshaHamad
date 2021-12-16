@@ -4,5 +4,5 @@ public interface Entity<ID> {
   void setId(ID id);
   ID getId();
 
-  void setId(Integer id);
+  //void setId(Integer id);
 }
