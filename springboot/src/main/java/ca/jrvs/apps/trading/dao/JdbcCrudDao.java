@@ -109,9 +109,9 @@ public abstract class JdbcCrudDao<T extends Entity> implements CrudRepository<T,
     String sql = "DELETE FROM " + getTableName() + " WHERE " + getIDColumnName() + " =?";
     int check = getJdbcTemplate().update(sql, id);
 
-    if (check == 0) {
+    /*if (check == 0) {
       logger.error(id + " - unable to delete");
-    }
+    }*/
   }
 
   @Override
