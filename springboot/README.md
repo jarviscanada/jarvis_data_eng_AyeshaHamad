@@ -16,7 +16,7 @@ Table of contents
 **Prerequisites:** 
 - Please verify that you have installed Docker version higher than 17.
 - It is recommended to use CentOS 7, Linux VM for compatibility.
-- Make sure you get and save IEX Token from here, it will be used later in the app.
+- Make sure you get and save IEX Token from here: https://iexcloud.io/console/ . It will be used later in the app.
 
 Using terminal execute following commands to pull docker images.
 ````shell
@@ -63,12 +63,14 @@ Once you run the docker containers, you are now able to test the application usi
 # Implementation
 ## Architecture
 ![Architecture](assets/architecture.png)
+
+
 This application uses the microservice architecture and Springboot framework which consist of following layers:
-    - `Controller layer` Handles client http requests and check input arguments. Webservlet will map http request to corresponding controller. It then calls service layer and returns the result.
-    - `Service layer` Checks if the request data is valid and fulfills the business requirements before processing and and connecting with DAO(s)
-    - `DAO layer` It is responsible for executing basic Crud operations while connecting with database.
-    - `SpringBoot` : It is responsible for managing the dependencies and their relationships for the application to be able to run and listen to clients' requests (Web servlet/Tomcat).
-    - `PSQL and IEX` Web Services are always stateless. So in order to persist data regarding trader, quotes etc. Postgres is used. And IEX Rest API is used to update or add quotes to the database. 
+- `Controller layer` Handles client http requests and check input arguments. Webservlet will map http request to corresponding controller. It then calls service layer and returns the result.
+- `Service layer` Checks if the request data is valid and fulfills the business requirements before processing and and connecting with DAO(s)
+- `DAO layer` It is responsible for executing basic Crud operations while connecting with database.
+- `SpringBoot` : It is responsible for managing the dependencies and their relationships for the application to be able to run and listen to clients' requests (Web servlet/Tomcat).
+- `PSQL and IEX` Web Services are always stateless. So in order to persist data regarding trader, quotes etc. Postgres is used. And IEX Rest API is used to update or add quotes to the database. 
 
 ## REST API Usage
 ### Swagger
@@ -140,6 +142,5 @@ docker push ayeshahamad/trading-psql
 Now once we have created and uploaded both images on Docker Hub. All you need to do is that follow the [Quick Start](#Quick Start) guide, pull images, create a docker network, create and run docker containers and start the application using swagger or postman.
   
 # Improvements
-If you have more time, what would you improve?
 - Adding a startup script for the users to set up the application. So that it minimizes the manual work for pulling image and creating network etc.
 - Transferring funds between accounts.
