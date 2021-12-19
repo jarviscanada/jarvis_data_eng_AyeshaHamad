@@ -12,7 +12,6 @@ import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
 import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 
 @SpringBootApplication(
-    //scanBasePackages = "ca.jrvs.apps.trading",
     exclude = {JdbcTemplateAutoConfiguration.class, DataSourceAutoConfiguration.class, HibernateJpaAutoConfiguration.class}
 )
 public class Application implements CommandLineRunner {
@@ -22,15 +21,8 @@ public class Application implements CommandLineRunner {
   //@Value("${app.init.dailyList}")
   //private String[] initDailyList;
 
-  //why ? it should be controller
   @Autowired
-  //private QuoteController quoteController;
   private QuoteService quoteService;
-
-  //@Autowired
-  //public Application(QuoteController quoteController) {
-  //  this.quoteController = quoteController;
-  //}
 
   public static void main(String[] args) {
     SpringApplication springApplication = new SpringApplication(Application.class);
