@@ -1,6 +1,6 @@
 Table of contents
 * [Introduction](#Introduction)
-* [Quick Start](#QuickStart)
+* [Quick Start](#Quick-Start)
 * [Implementation](#Implementation)
 * [Test](#Test)
 * [Deployment](#Deployment)
@@ -62,27 +62,34 @@ Once you run the docker containers, you are now able to test the application usi
 
 # Implementation
 ## Architecture
-- Draw a component diagram that contains controllers, services, DAOs, SQL, IEX Cloud, WebServlet/Tomcat, HTTP client, and SpringBoot. (you must create your own diagram)
-- briefly explain the following components and services (3-5 sentences for each)
-    - Controller layer (e.g. handles user requests....)
-    - Service layer
-    - DAO layer
-    - SpringBoot: webservlet/TomCat and IoC
-    - PSQL and IEX
+![Architecture](assets/architecture.png)
+This application uses the microservice architecture and Springboot framework which consist of following layers:
+    - `Controller layer` Handles client http requests and check input arguments. Webservlet will map http request to corresponding controller. It then calls service layer and returns the result.
+    - `Service layer` Checks if the request data is valid and fulfills the business requirements before processing and and connecting with DAO(s)
+    - `DAO layer` It is responsible for executing basic Crud operations while connecting with database.
+    - `SpringBoot` : It is responsible for managing the dependencies and their relationships for the application to be able to run and listen to clients' requests (Web servlet/Tomcat).
+    - `PSQL and IEX` Web Services are always stateless. So in order to persist data regarding trader, quotes etc. Postgres is used. And IEX Rest API is used to update or add quotes to the database. 
 
 ## REST API Usage
 ### Swagger
-What's swagger (1-2 sentences, you can copy from swagger docs). Why are we using it or who will benefit from it?
+Swagger is a UI tool that allows us to create interfaces for our REST APIs. It provides a visual representation of our API, allowing clients to get a better sense of the PoC.
+
 ### Quote Controller
-- High-level description for this controller. Where is market data coming from (IEX) and how did you cache the quote data (PSQL). Briefly talk about data from within your app
-- briefly explain each endpoint
-  e.g.
-    - GET `/quote/dailyList`: list all securities that are available to trading in this trading system blah..blah..
+- The quote controller gets security data from IEX and stores it in our database.
+  - GET  `/quote/dailyList`: Displays Daily List for Quotes
+  - GET  `/quote/iex/ticker/{ticker}`: Shows IexQuote
+  - GET  `/quote/iex/tickers/{tickers}`: Shows multiple IexQuotes
+  - POST `/quote/tickerId/{tickerId}`: Adds a new Ticker to Daily List (quote table)
+  - PUT  `/quote/`: Update Quote manually in Quote Table using IEX Market Data
+  - PUT  `/quote/iexMarketData`: Update Quote table using IEX data
 ### Trader Controller
-- High-level description for trader controller (e.g. it can manage trader and account information. it can deposit and withdraw fund from a given account)
-- briefly explain each endpoint
-### App controller
-- briefly explain each endpoint
+- It manages trader and account information, deposit and withdraw funds from a given account.
+- You can add new trader or delete trader if there is no balance in the account.
+  - DELETE `/trader/traderId/{traderId}`: Delete a Trader by ID
+  - POST   `/trader/`: Create a Trader and Account with DTO
+  - POST   `/trader/firstname/{firstname}/lastname/{lastname}/dob/{dob}/country/{country}/email/{email}`: Create a Trader and an Account
+  - PUT    `/trader/deposit/traderId/{traderId}/amount/{amount}`: Deposit a fund
+  - PUT    `/trader/withdraw/traderId/{traderId}/amount/{amount}`: Withdraw a fund
 
 # Test
 After adding every Service and Dao component it was tested (integration testing) using JUnit 4 to verify that it is working as expected. Only Controller components were tested directly using Swagger or Postman. The code coverage for all tested components is at least 60%.
